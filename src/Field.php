@@ -263,7 +263,7 @@ abstract class Field {
     /**
      * Set required status.
      *
-     * @param string  $status
+     * @param boolean  $status
      * @return $this
      */
     public function setRequired($status = true)

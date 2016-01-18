@@ -70,7 +70,7 @@ class Renderer {
 	/**
      * Create a template cache key.
      *
-	 * @param  string  $name
+	 * @param  string  $template
 	 * @param  array  $paths
      * @return string
      */	
@@ -100,7 +100,6 @@ class Renderer {
 	/**
      * Check if a template exists.
      *
-	 * @param  string  $key
 	 * @param  string  $template
 	 * @param  array  $paths
      * @return boolean
@@ -115,7 +114,7 @@ class Renderer {
      *
 	 * @param  string  $template
 	 * @param  array  $paths
-     * @return void
+     * @return array
      */	
 	public function findTemplate($template, $paths)
 	{

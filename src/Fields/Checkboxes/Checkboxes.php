@@ -76,7 +76,9 @@ class Checkboxes extends Field {
                 'checked' => $this->values[$name] ? true : false
             ];
         }
-        return ['options' => $options];
+        $properties['options'] = $options;
+
+        return $properties;
     }
 
     public function setValuesFromDefaults($defaults)

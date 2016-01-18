@@ -14,7 +14,6 @@ abstract class Plugin {
 	/**
      * Create a new plugin instance.
      *
-     * @return void
      */
 	public function __construct() 
 	{

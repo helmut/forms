@@ -236,7 +236,6 @@ abstract class Form {
     /**
      * Add default models to the form.
      *
-     * @param  mixed  $model
      * @return void
      */
     public function defaults() 
@@ -590,7 +589,7 @@ abstract class Form {
      * Get template configuration.
      *
      * @param  string  $template
-     * @return void
+     * @return array
      */
     public function templateConfig($template)
     {

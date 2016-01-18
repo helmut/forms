@@ -1,5 +1,4 @@
 # Helmut\Forms
-https://img.shields.io/github/release/helmut/forms.svg
 
 [![Latest Stable Version](https://poser.pugx.org/helmut/forms/v/stable)](https://packagist.org/packages/helmut/forms)
 [![Build Status](https://api.travis-ci.org/helmut/forms.svg?branch=master)](https://travis-ci.org/helmut/forms)

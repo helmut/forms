@@ -374,7 +374,7 @@ $form->setTemplate('neat')
 
 ```php
 $form->setLanguage('en') 	// Set language to english
-$form->setLanguage('es') 	// Set language to spanish
+$form->setLanguage('es') 	// Idioma establecida en español
 ```
 
 ## Plugins

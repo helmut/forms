@@ -5,7 +5,7 @@
 		"form", "field", "request", "model", "text", "email", "name", "checkbox", 
 		"checkboxes", "dropdown"
 	],
-	"license": "proprietary",
+	"license": "MIT",
 	"authors": [
         {
             "name": "helmut",

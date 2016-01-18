@@ -116,7 +116,6 @@ abstract class Form {
      *
      * @param  \Helmut\Forms\Request  $request
      * @param  \Helmut\Forms\Renderer  $renderer
-     * @return void
      */
     public function __construct(Request $request = null, Renderer $renderer = null)
     {
@@ -254,7 +253,7 @@ abstract class Form {
      * Fetch all fields or just those matching
      * the names provided.
      *
-     * @param  string  $names
+     * @param  array  $names
      * @return array
      */
     public function fields($names = null)
@@ -1059,7 +1058,7 @@ abstract class Form {
     /**
      * Get all of the plugins
      *
-     * @return array;
+     * @return array
      */
     public function getPlugins()
     {

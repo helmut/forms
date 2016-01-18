@@ -73,7 +73,6 @@ abstract class Field {
      * @param  \Helmut\Forms\Form  $form
      * @param  string  $type
      * @param  string  $name
-     * @return void
      */
     public function __construct(\Helmut\Forms\Form $form, $type, $name)
     {

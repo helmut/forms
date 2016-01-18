@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit 	bootstrap="vendor/autoload.php" 
+			colors="true"
+			verbose="true"
+			convertErrorsToExceptions="true" 
+			convertNoticesToExceptions="true" 
+			convertWarningsToExceptions="true" 
+			stopOnFailure="true">
+
+			<testsuites>
+				<testsuite name="Form Tests">
+					<file>tests/unit/FormTest.php</file> 
+					<file>tests/unit/ButtonTest.php</file> 
+					<file>tests/unit/TextTest.php</file> 
+					<file>tests/unit/NumberTest.php</file> 
+					<file>tests/unit/EmailTest.php</file> 
+					<file>tests/unit/NameTest.php</file> 
+					<file>tests/unit/CheckboxTest.php</file> 
+					<file>tests/unit/CheckboxesTest.php</file> 
+					<file>tests/unit/DropdownTest.php</file>
+					<file>tests/unit/ParagraphTextTest.php</file> 
+					<file>tests/unit/PasswordTest.php</file>
+					<file>tests/unit/SearchTest.php</file>
+				</testsuite>
+        </testsuites>
+</phpunit>

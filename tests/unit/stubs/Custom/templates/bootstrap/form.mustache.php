@@ -1,0 +1,1 @@
+it_renders_using_your_namespace_template

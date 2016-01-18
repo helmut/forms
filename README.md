@@ -1,6 +1,5 @@
 # Helmut\Forms
 [![Latest Stable Version](https://poser.pugx.org/helmut/forms/v/stable)](https://packagist.org/packages/helmut/forms)
-[![Total Downloads](https://poser.pugx.org/helmut/forms/downloads)](https://packagist.org/packages/helmut/forms) 
 [![Build Status](https://api.travis-ci.org/helmut/forms.svg?branch=master)](https://travis-ci.org/helmut/forms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/helmut/forms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/helmut/forms/?branch=master)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)

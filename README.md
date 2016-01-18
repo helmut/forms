@@ -1,8 +1,10 @@
 # Helmut\Forms
+https://img.shields.io/github/release/helmut/forms.svg
+
 [![Latest Stable Version](https://poser.pugx.org/helmut/forms/v/stable)](https://packagist.org/packages/helmut/forms)
 [![Build Status](https://api.travis-ci.org/helmut/forms.svg?branch=master)](https://travis-ci.org/helmut/forms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/helmut/forms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/helmut/forms/?branch=master)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Software License](https://img.shields.io/github/license/helmut/forms.svg)](LICENSE)
 
 A form abstraction library to simplify processing requests. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the default fields types, or build up your own library of reusable and testable fields, and drop them into every application you build.
 

@@ -183,7 +183,7 @@ abstract class Form {
     public function triggerDefinition()
     {
         if (method_exists($this, 'define')) {
-            $this->define();
+            call_user_func_array([$this, 'define'], []);
         }
 
         $this->broadcast('define');
@@ -490,7 +490,7 @@ abstract class Form {
     {
         if ($this->submitted()) $this->validate();
 
-        if ( ! is_null($name)) $this->field($name)->errors();
+        if ( ! is_null($name)) return $this->field($name)->errors();
 
         $errors = [];
 

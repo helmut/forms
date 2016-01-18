@@ -23,9 +23,4 @@
 					<file>tests/unit/SearchTest.php</file>
 				</testsuite>
         </testsuites>
-        <logging>
-            <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
-            <log type="coverage-html" target="coverage" showUncoveredFiles="true"/>
-            <log type="coverage-clover" target="coverage.xml" showUncoveredFiles="true"/>
-        </logging>        
 </phpunit>

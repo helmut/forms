@@ -10,8 +10,7 @@ A form abstraction library to simplify processing requests. Think of it as a req
 * Abstracts the request not the html
 * Provides a model for reusing field components
 * You design field templates the way you normally do but only once
-* Render using mustache, twig, or blade templates
-* Easily handle form submissions
+* Render using mustache, twig, or blade
 * Built in validation
 * Makes forms testable
 

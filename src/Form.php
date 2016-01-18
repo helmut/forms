@@ -268,7 +268,7 @@ abstract class Form {
      * Get a field matching name.
      *
      * @param  string  $name
-     * @return \Helmut\Forms\Field;
+     * @return \Helmut\Forms\Field
      */
     public function field($name)
     {
@@ -985,7 +985,7 @@ abstract class Form {
     /**
      * Get autoload path for a class.
      *
-     * @param  string  $class
+     * @param  string|object  $class
      * @return string
      */
     public function pathForClass($class)

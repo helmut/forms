@@ -7,7 +7,7 @@ abstract class Field {
     /**
      * The parent form.
      *
-     * @var \Helmut\Forms\Form;
+     * @var \Helmut\Forms\Form
      */
     protected $form;
 
@@ -432,7 +432,7 @@ abstract class Field {
     /**
      * Get the parent form.
      *
-     * @return \Helmut\Forms\Form;
+     * @return \Helmut\Forms\Form
      */
     public function getForm()
     {

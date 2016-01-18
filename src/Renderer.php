@@ -3,8 +3,8 @@
 namespace Helmut\Forms;
 
 class Renderer {
-	
- 	/**
+
+    /**
      * Array of engine definitions using
      * file extension as key.
      * 
@@ -16,21 +16,21 @@ class Renderer {
 		'.blade.php' => 'Helmut\Forms\Engines\Blade',
 	];
 
- 	/**
+    /**
      * Cache of running engines.
      *
      * @var array
      */
 	protected $running = [];
 
- 	/**
+    /**
      * Cache of template files.
      *
      * @var array
      */
 	protected $templates = [];
 
-	/**
+    /**
      * Add a new engine implementation.
      *
 	 * @param  string  $extension
@@ -42,7 +42,7 @@ class Renderer {
 		array_unshift($this->engines, [$extension => $class]);
 	}
 
-	/**
+    /**
      * Get an engine implementation.
      *
 	 * @param  string  $key
@@ -57,7 +57,7 @@ class Renderer {
 		return $this->running[$key];
 	}
 
-	/**
+    /**
      * Get engine file extensions.
      *
      * @return array
@@ -67,7 +67,7 @@ class Renderer {
 		return array_keys($this->engines);
 	}
 
-	/**
+    /**
      * Create a template cache key.
      *
 	 * @param  string  $template
@@ -79,7 +79,7 @@ class Renderer {
 		return $template.'-'.md5(serialize($paths));
 	}
 
-	/**
+    /**
      * Render a template.
      *
 	 * @param  string  $template
@@ -97,7 +97,7 @@ class Renderer {
 		}
 	}
 
-	/**
+    /**
      * Check if a template exists.
      *
 	 * @param  string  $template
@@ -109,7 +109,7 @@ class Renderer {
 		return ! is_null($this->findTemplate($template, $paths));
 	}
 
-	/**
+    /**
      * Find template file with engine.
      *
 	 * @param  string  $template

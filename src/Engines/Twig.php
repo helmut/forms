@@ -4,7 +4,7 @@ namespace Helmut\Forms\Engines;
 
 use Helmut\Forms\Engine;
 use Twig_Environment;
-use Twig_Loader_String;
+use Twig_Loader_Array;
 
 class Twig implements Engine {
 
@@ -23,7 +23,7 @@ class Twig implements Engine {
 	public function compiler()
 	{
 		if ( ! $this->compiler) {
-			$this->compiler = new Twig_Environment(new Twig_Loader_String);
+			$this->compiler = new Twig_Environment(new Twig_Loader_Array([]));
 		}
 
 		return $this->compiler;
@@ -40,7 +40,9 @@ class Twig implements Engine {
 	{
 		$content = file_get_contents($path);
 
-		return $this->compiler()->render($content, $properties);
+        $template = $this->compiler()->createTemplate($content);
+
+		return $template->render($properties);
 	}
 
 }

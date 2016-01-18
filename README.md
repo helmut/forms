@@ -7,6 +7,16 @@
 
 A form abstraction library to simplify processing requests. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the default fields types, or build up your own library of reusable and testable fields, and drop them into every application you build.
 
+* Abstracts the request not the html
+* Provides a model for reusing field components
+* You design field templates the way you normally do but only once
+* Render using mustache, twig, or blade templates
+* Easily handle form submissions
+* Built in validation
+* Makes forms testable
+
+---
+
 * [Installation](#installation)
 * [Usage](#usage)
 * [API Reference](#api-reference)

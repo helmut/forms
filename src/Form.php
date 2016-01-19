@@ -2,6 +2,9 @@
 
 namespace Helmut\Forms;
 
+use Helmut\Forms\Utility\Str;
+use Helmut\Forms\Utility\Reflect;
+
 abstract class Form {
 
     /**
@@ -94,13 +97,6 @@ abstract class Form {
      * @var array
      */
     protected $paths = [];  
-
-    /**
-     * The validator used by the form.
-     *
-     * @var \Helmut\Forms\Validator
-     */
-    protected $validator;   
 
     /**
      * The static instantiation counter. Used
@@ -440,15 +436,17 @@ abstract class Form {
      */
     public function addNamespaceForClass($class)
     {
-        if (is_object($class)) $class = get_class($class);
+        $namespace = Reflect::getNamespace($class);
 
-        $reflector = new \ReflectionClass($class);
-
-        if ($reflector->inNamespace()) {
-            $this->addNamespace($reflector->getNamespaceName());
+        if ( ! is_null($namespace)) {
+            $this->addNamespace($namespace);
         }
 
-        $this->addPath(dirname($reflector->getFileName()));
+        $directory = Reflect::getDirectory($class);
+  
+        if ( ! is_null($directory) && is_dir($directory)) {
+            $this->addPath($directory);
+        }
     }   
 
     /**
@@ -470,7 +468,7 @@ abstract class Form {
      */
     public function typeToClass($type)
     {
-        $class = $this->validator()->studly($type);
+        $class = Str::studly($type);
 
         $class = '\\Fields\\'.ucwords($class).'\\'.ucwords($class);
 
@@ -877,7 +875,7 @@ abstract class Form {
      */
     public function addPlugin($name)
     {
-        $class = $this->validator()->studly($name);
+        $class = Str::studly($name);
 
         $class = '\\Plugins\\'.ucwords($class).'\\'.ucwords($class);
 
@@ -990,10 +988,7 @@ abstract class Form {
      */
     public function pathForClass($class)
     {
-        if (is_object($class)) $class = get_class($class);
-
-        $reflector = new \ReflectionClass($class);
-        $path = dirname($reflector->getFileName()); 
+        $path = Reflect::getDirectory($class);
 
         return rtrim($path, '/').'/';
     }
@@ -1038,21 +1033,7 @@ abstract class Form {
     public function getRenderer()
     {
         return $this->renderer;
-    }
-
-    /**
-     * Get the validator implementation.
-     *
-     * @return \Helmut\Forms\Validator
-     */
-    public function validator()
-    {
-        if (is_null($this->validator)) {
-            $this->validator = new \Helmut\Forms\Validator;
-        }
-
-        return $this->validator;
-    }   
+    } 
 
     /**
      * Get all of the plugins

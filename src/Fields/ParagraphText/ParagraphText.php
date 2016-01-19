@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\ParagraphText;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class ParagraphText extends Field {
 
@@ -45,7 +46,7 @@ class ParagraphText extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
 }

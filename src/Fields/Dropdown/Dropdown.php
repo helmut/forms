@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Dropdown;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Dropdown extends Field {
 
@@ -57,7 +58,7 @@ class Dropdown extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
 }

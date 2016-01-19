@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Password;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Password extends Field {
 
@@ -72,7 +73,7 @@ class Password extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
 }

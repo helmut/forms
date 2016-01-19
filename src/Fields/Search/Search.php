@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Search;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Search extends Field {
 
@@ -45,7 +46,7 @@ class Search extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
 }

@@ -2,6 +2,9 @@
 
 namespace Helmut\Forms;
 
+use Helmut\Forms\Utility\Str;
+use Helmut\Forms\Utility\Reflect;
+
 abstract class Plugin {
 	
     /**
@@ -27,8 +30,7 @@ abstract class Plugin {
      */
 	public function setPath()
 	{
-		$reflector = new \ReflectionClass($this);
-		$this->path = dirname($reflector->getFileName());;
+        $this->path = Reflect::getDirectory($this);
 	}
 
 	/**
@@ -72,7 +74,7 @@ abstract class Plugin {
      */
 	public function event($form, $name, $params = []) 
 	{
-		$name = $form->validator()->studly($name);
+		$name = Str::studly($name);
 
 		if (method_exists($this, 'on'.$name)) {
 			return call_user_func_array(array($this, 'on'.$name), [$form, $params]);

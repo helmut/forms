@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Name;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Name extends Field {
 
@@ -63,8 +64,8 @@ class Name extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value_first)
-                && $this->validator()->required($this->value_surname);
+        return Validate::required($this->value_first)
+                && Validate::required($this->value_surname);
     }   
 
 }

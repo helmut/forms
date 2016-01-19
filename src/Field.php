@@ -2,6 +2,9 @@
 
 namespace Helmut\Forms;
 
+use Helmut\Forms\Utility\Str;
+use Helmut\Forms\Utility\Reflect;
+
 abstract class Field {
 
     /**
@@ -339,7 +342,7 @@ abstract class Field {
      */
     public function callValidationMethod($validation, $parameters = []) 
     {
-        $method = $this->validator()->snake($validation);
+        $method = Str::snake($validation);
         
         if ( ! call_user_func_array([$this, $validation], $parameters)) {   
             $this->errors[$method] = $parameters;
@@ -420,16 +423,6 @@ abstract class Field {
     }
 
     /**
-     * Get the validator instance.
-     *
-     * @return \Helmut\Forms\Validator
-     */
-    public function validator() 
-    {
-        return $this->form->validator();
-    }
-
-    /**
      * Get the parent form.
      *
      * @return \Helmut\Forms\Form
@@ -456,7 +449,7 @@ abstract class Field {
     {
         if ( ! method_exists($this, $method)) {
 
-            $method = $this->validator()->studly($method);
+            $method = Str::studly($method);
 
             $name = 'set'.$method;
             if (method_exists($this, $name)) {
@@ -466,17 +459,9 @@ abstract class Field {
             $name = 'validate'.$method;
             if (method_exists($this, $name)) {
 
-                $args = [];
-
-                // Work out the argument names of the requested method
-                $method = new \ReflectionMethod($this, $name);
-                foreach($method->getParameters() as $arg) {
-                    $args[] = $arg->getName();
-                }
-
-                $parameters = array_pad($parameters, count($args), null);
-
-                $this->validations[$name] = array_combine($args, $parameters);
+                $arguments = Reflect::getParameters($this, $name);
+                $parameters = array_pad($parameters, count($arguments), null);
+                $this->validations[$name] = array_combine($arguments, $parameters);
 
                 return $this;
             }           

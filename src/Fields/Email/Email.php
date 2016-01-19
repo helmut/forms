@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Email;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Email extends Field {
 
@@ -50,12 +51,12 @@ class Email extends Field {
 
     public function validateEmail()
     {
-        return $this->validator()->email($this->value);
+        return Validate::email($this->value);
     }
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
 }

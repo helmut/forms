@@ -3,6 +3,7 @@
 namespace Helmut\Forms\Fields\Text;
 
 use Helmut\Forms\Field;
+use Helmut\Forms\Utility\Validate;
 
 class Text extends Field {
 
@@ -52,48 +53,48 @@ class Text extends Field {
 
     public function validateRequired()
     {
-        return $this->validator()->required($this->value);
+        return Validate::required($this->value);
     }
 
     public function validateBetween($min, $max)
     {
-        return $this->validator()->stringMin($this->value, $min) 
-                && $this->validator()->stringMax($this->value, $max);
+        return Validate::stringMin($this->value, $min) 
+                && Validate::stringMax($this->value, $max);
     }
 
     public function validateMax($max)
     {
-        return $this->validator()->stringMax($this->value, $max);
+        return Validate::stringMax($this->value, $max);
     }
 
     public function validateMin($min)
     {
-        return $this->validator()->stringMin($this->value, $min);
+        return Validate::stringMin($this->value, $min);
     }   
 
     public function validateAlpha()
     {
-        return $this->validator()->alpha($this->value);
+        return Validate::alpha($this->value);
     }
 
     public function validateAlphaNum()
     {
-        return $this->validator()->alphaNum($this->value);
+        return Validate::alphaNum($this->value);
     }
 
     public function validateAlphaDash()
     {
-        return $this->validator()->alphaDash($this->value);
+        return Validate::alphaDash($this->value);
     }
 
     public function validateIn($values = [])
     {
-        return $this->validator()->in($this->value, $values);
+        return Validate::in($this->value, $values);
     }
 
     public function validateNotIn($values = [])
     {
-        return $this->validator()->notIn($this->value, $values);
+        return Validate::notIn($this->value, $values);
     }
 
 }

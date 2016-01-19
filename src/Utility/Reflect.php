@@ -7,7 +7,7 @@ use ReflectionMethod;
 use ReflectionException;
 
 class Reflect {
-	
+    
     public static function getFilename($class) 
     {
         try {

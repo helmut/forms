@@ -2,3 +2,4 @@ vendor
 composer.lock
 test.php
 tests/codeception/_output/*
+demo

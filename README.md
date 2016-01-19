@@ -12,6 +12,7 @@ A form abstraction library to simplify processing requests. Think of it as a req
 * Provides a model for reusing field components
 * You design field templates the way you normally do but only once
 * Render using mustache, twig, or blade
+* Compatible with CSS preprocessors
 * Built in validation
 
 
@@ -375,14 +376,15 @@ In the same namespace (or folder) that you created your form in [Step 1](#step-1
 
 ## Templates
 
-A few basic template packages are provided by default that are compatible with common css frameworks including [Bootstrap](http://getbootstrap.com/), [Foundation](http://foundation.zurb.com/), [Jeet](http://github.com/mojotech/jeet), [Singularity](https://github.com/Team-Sass/Singularity) and [Neat](https://github.com/thoughtbot/neat). These should provide a great base for [customisation](#customisation).
+A few basic template packages are provided by default that are compatible with common css frameworks such as [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/). These should provide a great base for [customisation](#customisation). Forms is compatible with CSS preprocessors and development of base templates for [Jeet](http://github.com/mojotech/jeet), [Singularity](https://github.com/Team-Sass/Singularity) and [Neat](https://github.com/thoughtbot/neat) are in the pipeline.
 
 ```php
 $form->setTemplate('bootstrap') 		// Default
 $form->setTemplate('foundation')
-$form->setTemplate('jeet')
-$form->setTemplate('singularity')
-$form->setTemplate('neat')
+
+$form->setTemplate('jeet')              // Coming soon...
+$form->setTemplate('singularity')       // Coming soon...
+$form->setTemplate('neat')              // Coming soon...
 ```
 
 ## Language

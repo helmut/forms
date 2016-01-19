@@ -119,7 +119,7 @@ abstract class Form {
      */
     public function __construct(Request $request = null, Renderer $renderer = null)
     {
-        $this->request = $request ?: new Requests\Basic;
+        $this->request = $request ?: new Requests\Globals;
         $this->renderer = $renderer ?: new Renderer;
 
         $this->loadNamespaces();
@@ -374,7 +374,7 @@ abstract class Form {
         $buttons = is_null($name) ? $this->buttons : [$name];
 
         foreach ($buttons as $button) {
-            if ($this->request->get($button)) {
+            if ($this->request->get($button) == true) {
                 $this->broadcast('submitted');
                 return true;
             }

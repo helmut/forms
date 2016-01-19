@@ -4,7 +4,7 @@ namespace Helmut\Forms\Requests;
 
 use Helmut\Forms\Request;
 
-class Basic implements Request {
+class Globals implements Request {
 	
 	public function all()
 	{

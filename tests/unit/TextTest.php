@@ -12,6 +12,14 @@ class TextTest extends FormTestCase {
 		$this->assertContains('<input name="foo" value=""', $form->render());
 	}
 
+    /** @test */
+    public function it_can_set_a_width()
+    {
+        $form = $this->form();
+        $form->text('foo')->width('75%');
+        $this->assertContains('width:75%', $form->render());
+    }
+
 	/** @test */
 	public function it_renders_a_default_value()
 	{

@@ -17,7 +17,7 @@ class Reflect {
             return $reflector->getFileName();
 
         } catch (ReflectionException $ex) {
-
+            // Ignore
         }
     }
 
@@ -41,7 +41,7 @@ class Reflect {
             }
 
         } catch (ReflectionException $ex) {
-
+            // Ignore
         }            
     }
 
@@ -58,7 +58,7 @@ class Reflect {
             }
 
         } catch (ReflectionException $ex) {
-
+            // Ignore
         }
 
         return $params;

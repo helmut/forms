@@ -13,7 +13,7 @@ class Laravel extends ServiceProvider {
      */
     public function register()
     {
- 		$this->app->bind('Helmut\Forms\Request', 'Helmut\Forms\Requests\Laravel');
+        $this->app->bind('Helmut\Forms\Request', 'Helmut\Forms\Requests\Laravel');
     }
 
 }

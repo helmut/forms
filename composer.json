@@ -3,7 +3,8 @@
 	"description": "Form abstraction to simplify the processing of complex requests.",
 	"keywords": [
 		"form", "field", "request", "model", "text", "email", "name", "checkbox", 
-		"checkboxes", "dropdown"
+		"checkboxes", "dropdown", "password", "input", "twig", "blade", "mustache", 
+        "symfony", "laravel"
 	],
 	"license": "MIT",
 	"authors": [

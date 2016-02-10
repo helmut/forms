@@ -33,7 +33,7 @@ class Number extends Field {
 
     public function setValuesFromDefaults($defaults)
     {
-        if (count($this->defaults)) $this->value = array_shift($this->defaults);
+        if (count($defaults)) $this->value = array_shift($defaults);
     }
 
     public function setValuesFromModel($model)

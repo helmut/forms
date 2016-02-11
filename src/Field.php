@@ -43,11 +43,11 @@ abstract class Field {
     public $label;
 
     /**
-     * An array of default values.
+     * The default value of the field.
      *
      * @var array
      */
-    protected $defaults = [];
+    protected $default;
 
     /**
      * Field is required.
@@ -87,49 +87,52 @@ abstract class Field {
     }
 
     /**
-     * Return an array of values by key.
+     * Return an the value of the field. For fields 
+     * with multiple values return an array of values
+     * using associative key names.
      *
      * @return array
      */
-    abstract public function getValues();
+    abstract public function getValue();
 
     /**
-     * Provide keys for any buttons.
+     * Provide the key names of any buttons. Multiple
+     * buttons may be returned using an array.
      *
-     * @return array
+     * @return mixed
      */    
-    abstract public function getButtons();
+    abstract public function getButtonName();
 
     /**
      * Return array of properties for renderering.
      *
      * @return array
      */
-    abstract public function getProperties();
+    abstract public function renderWith();
 
     /**
-     * Set field values using provided defaults.
+     * Set field value using provided default.
      *
-     * @param array  $defaults
+     * @param mixed  $default
      * @return void
      */
-    abstract public function setValuesFromDefaults($defaults);
+    abstract public function setValueFromDefault();
 
     /**
-     * Set values using a model.
+     * Set value using a model.
      *
      * @param object  $model
      * @return void
      */    
-    abstract public function setValuesFromModel($model);
+    abstract public function setValueFromModel($model);
 
     /**
-     * Set values from the request.
+     * Set value from the request.
      *
      * @param \Helmut\Forms\Request  $request
      * @return void
      */    
-    abstract public function setValuesFromRequest($request);
+    abstract public function setValueFromRequest($request);
 
     /**
      * Fill a model with field values.
@@ -137,7 +140,7 @@ abstract class Field {
      * @param object  $model
      * @return void
      */    
-    abstract public function fillModelWithValues($model);
+    abstract public function fillModelWithValue($model);
 
     /**
      * Return if field passes required validation.
@@ -174,17 +177,28 @@ abstract class Field {
      */
     public function values() 
     {
-        return $this->getValues();
+        $values = $this->getValue();
+
+        if (is_null($values)) $values = [];
+
+        else if ( ! is_array($values)) $values = [$this->name => $values];
+
+        return $values;
     }
 
     /**
-     * Return an array of properties.
+     * Return an array of properties to be passed
+     * to the template during rendering.
      *
      * @return array
      */    
     public function properties() 
     {
-        return $this->getProperties();
+        $properties = $this->renderWith();
+
+        if (is_null($properties)) $properties = [];
+
+        return $properties;
     }
 
     /**
@@ -194,28 +208,34 @@ abstract class Field {
      */    
     public function buttons()
     {
-        return $this->getButtons();
+        $buttons = $this->getButtonName();
+
+        if (is_null($buttons)) $buttons = [];
+
+        else if ( ! is_array($buttons)) $buttons = [$buttons];
+
+        return $buttons;
     }
 
     /**
-     * Set the field values using defaults.
+     * Set the field value using default.
      *
      * @return void
      */ 
-    public function setFromDefaults()
+    public function setFromDefault()
     {
-        $this->setValuesFromDefaults($this->defaults);
+        if ( ! is_null($this->default)) $this->setValueFromDefault();
     }
 
     /**
-     * Set the field values using request.
+     * Set the field value using request.
      *
      * @param \Helmut\Forms\Request  $request
      * @return void
      */ 
     public function setFromRequest($request)
     {
-        $this->setValuesFromRequest($request);
+        $this->setValueFromRequest($request);
     }
 
     /**
@@ -226,18 +246,18 @@ abstract class Field {
      */     
     public function setFromModel($model)
     {
-        $this->setValuesFromModel($model);
+        $this->setValueFromModel($model);
     }
 
     /**
-     * Fill a model with field values;
+     * Fill a model with field value;
      *
      * @param object  $model
      * @return void
      */     
     public function fillModel($model)
     {
-        $this->fillModelWithValues($model);
+        $this->fillModelWithValue($model);
     }
 
     /**
@@ -277,14 +297,14 @@ abstract class Field {
     } 
 
     /**
-     * Set default values.
+     * Set the default value.
      *
-     * @param array  $values
+     * @param mixed  $value
      * @return $this
      */
-    public function setDefault($values = []) 
+    public function setDefault($value) 
     {
-        $this->defaults = (array) $values;
+        $this->default = $value;
 
         return $this;
     }
@@ -402,7 +422,7 @@ abstract class Field {
      * @param  string  $key
      * @return mixed
      */
-    public function getValue($key = null) 
+    public function value($key = null) 
     {
         $values = $this->values();
 

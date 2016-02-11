@@ -9,37 +9,37 @@ class Search extends Field {
 
     public $value = '';
 
-    public function getValues()
+    public function getValue()
     {
-        return [$this->name => $this->value];
+        return $this->value;
     }
 
-    public function getButtons()
+    public function getButtonName()
     {
-        return [$this->name.'_button'];
+        return $this->name.'_button';
     }   
 
-    public function getProperties()
+    public function renderWith()
     {
         return ['value' => $this->value];
     }
 
-    public function setValuesFromDefaults($defaults)
+    public function setValueFromDefault()
     {
-        if (count($defaults)) $this->value = array_shift($defaults);
+        $this->value = $this->default;
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
     }
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value = $request->get($this->name);
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   

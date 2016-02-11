@@ -36,37 +36,37 @@ class Password extends Field {
         return password_verify($check, $hash);
     }
 
-    public function getValues()
+    public function getValue()
     {
-        return [$this->name => $this->value];
+        return $this->value;
     }
 
-    public function getProperties()
-    {
-        return [];
-    }
-
-    public function getButtons()
-    {
-        return [];
-    }   
-
-    public function setValuesFromDefaults($defaults)
+    public function getButtonName()
     {
         //
     }
 
-    public function setValuesFromModel($model)
+    public function renderWith()
+    {
+        //
+    }
+
+    public function setValueFromDefault()
+    {
+        //
+    }
+
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
     }
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value = $this->hash($request->get($this->name));
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   

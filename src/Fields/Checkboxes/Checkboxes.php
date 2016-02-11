@@ -6,8 +6,8 @@ use Helmut\Forms\Field;
 
 class Checkboxes extends Field {
 
+    public $default = [];
     public $options = [];
-
     public $values = [];
 
     public function setOptions($options)
@@ -24,12 +24,12 @@ class Checkboxes extends Field {
     {
         if (count($keys)) {
             foreach ($keys as $key) {
-                $this->defaults[$key] = true;
+                $this->default[$key] = true;
             }
         } else {
             $this->defaults = [];
             foreach (array_keys($this->options) as $key) {
-                $this->defaults[$key] = true;
+                $this->default[$key] = true;
             }
         }
         return $this;
@@ -39,18 +39,18 @@ class Checkboxes extends Field {
     {
         if (count($keys)) {
             foreach ($keys as $key) {
-                $this->defaults[$key] = false;
+                $this->default[$key] = false;
             }
         } else {
             $this->defaults = [];
             foreach (array_keys($this->options) as $key) {
-                $this->defaults[$key] = false;
+                $this->default[$key] = false;
             }
         }
         return $this;
     }       
 
-    public function getValues() 
+    public function getValue() 
     {
         $values = [];
         foreach (array_keys($this->options) as $key) {
@@ -59,12 +59,12 @@ class Checkboxes extends Field {
         return $values;
     }
 
-    public function getButtons()
+    public function getButtonName()
     {
-        return [];
+        //
     }           
 
-    public function getProperties() 
+    public function renderWith() 
     {
         $properties = [];
 
@@ -81,14 +81,14 @@ class Checkboxes extends Field {
         return $properties;
     }
 
-    public function setValuesFromDefaults($defaults)
+    public function setValueFromDefault()
     {
         foreach (array_keys($this->options) as $key) {
-            if (isset($defaults[$key])) $this->values[$key] = $defaults[$key] ? true : false;
+            if (isset($this->default[$key])) $this->values[$key] = $this->default[$key] ? true : false;
         }
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromModel($model)
     {
         foreach (array_keys($this->options) as $key) {
             if (property_exists($model, $this->name.'_'.$key)) $this->values[$key] = $model->{$this->name.'_'.$key} ? true : false;
@@ -96,19 +96,19 @@ class Checkboxes extends Field {
 
     }   
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         foreach (array_keys($this->options) as $key) {      
             $this->values[$key] = $request->get($this->name.'_'.$key) ? true : false;
         }
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         foreach (array_keys($this->options) as $key) {
             if (property_exists($model, $this->name.'_'.$key)) $model->{$this->name.'_'.$key} = $this->values[$key] ? 1 : 0;
         }
-    }   
+    }
 
     public function validateRequired()
     {

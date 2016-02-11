@@ -8,49 +8,49 @@ class Checkbox extends Field {
 
     public $value = false;
 
-    public function getValues() 
+    public function getValue() 
     {
-        return [$this->name => $this->value];
+        return $this->value;
     }
 
-    public function getButtons()
+    public function getButtonName()
     {
-        return [];
+        //
     }    
 
-    public function getProperties() 
+    public function renderWith() 
     {
         return ['checked' => $this->value];
     }       
 
     public function setChecked()
     {
-         $this->defaults = [true];
+         $this->default = true;
          return $this;
     }
 
     public function setUnchecked()
     {
-         $this->defaults = [false];
+         $this->default = false;
          return $this;
     }   
 
-    public function setValuesFromDefaults($defaults)
+    public function setValueFromDefault()
     {
-        $this->value = current($defaults) ? true : false;
+        $this->value = $this->default;
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name)) $this->value = $model->{$this->name} ? true : false;
     }   
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value = $request->get($this->name) ? true : false;
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value ? 1 : 0;
     }

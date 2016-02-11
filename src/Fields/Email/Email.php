@@ -9,40 +9,40 @@ class Email extends Field {
 
     public $value = '';
 
-    public function getValues()
+    public function getValue()
     {
-        return [$this->name => $this->value];
-    }
-    
-    public function getButtons()
-    {
-        return [];
+        return $this->value;
     }
 
-    public function getProperties()
+    public function getButtonName()
+    {
+        //
+    }
+
+    public function renderWith()
     {
         return ['value' => $this->value];
-    }    
-
-    public function setValuesFromDefaults($defaults)
-    {
-        if (count($defaults)) $this->value = array_shift($defaults);
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromDefault()
+    {
+        $this->value = $this->default;
+    }
+
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
-    }   
+    }
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value = $request->get($this->name);
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
-    }   
+    }
 
     public function validate()
     {

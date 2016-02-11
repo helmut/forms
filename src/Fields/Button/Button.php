@@ -6,45 +6,44 @@ use Helmut\Forms\Field;
 
 class Button extends Field {
 
-    public function getValues() 
-    {
-        return [];
-    }
-
-    public function getButtons() 
-    {
-        return [$this->name];
-    }
-
-    public function getProperties() 
-    {
-        return [];
-    }
-
-    public function setValuesFromDefaults($defaults)
+    public function getValue() 
     {
         // 
     }
 
-    public function setValuesFromModel($model)
+    public function getButtonName() 
     {
-        //
-    }   
+        return $this->name;
+    }
 
-    public function setValuesFromRequest($request)
+    public function renderWith() 
     {
         //
     }
 
-    public function fillModelWithValues($model)
+    public function setValueFromDefault()
+    {
+        // 
+    }
+
+    public function setValueFromModel($model)
     {
         //
     }   
+
+    public function setValueFromRequest($request)
+    {
+        //
+    }
+
+    public function fillModelWithValue($model)
+    {
+        //
+    }
 
     public function validateRequired()
     {
         return true;
     }
-
 
 }

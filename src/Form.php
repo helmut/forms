@@ -215,7 +215,7 @@ abstract class Form {
         foreach ($this->fields as $field)
         {
             // Set values from defaults
-            $field->setFromDefaults();
+            $field->setFromDefault();
 
             // Then load values from models
             foreach ($this->models as $model) {
@@ -321,7 +321,7 @@ abstract class Form {
         $field = $this->field($name);
 
         if ( ! is_null($field)) {
-            return $field->getValue($key);
+            return $field->value($key);
         }
     }
 

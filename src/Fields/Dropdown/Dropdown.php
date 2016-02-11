@@ -17,41 +17,50 @@ class Dropdown extends Field {
         return $this;
     }
 
-    public function getValues() 
+    public function getValue() 
     {
-        return [$this->name => $this->value];
+        return $this->value;
     }
 
-    public function getButtons()
+    public function getButtonName()
     {
-        return [];
+        //
     }  
 
-    public function getProperties() 
+    public function renderWith() 
     {
-        $options = [];
+        $properties = [
+            'value' => $this->value, 
+            'options' => [],
+        ];
+
         foreach ($this->options as $value => $label) {
-            $options[] = ['value'=>$value, 'label'=>$label, 'selected' => $this->value == $value];
+            $properties['options'][] = [
+                'value' => $value, 
+                'label' => $label, 
+                'selected' => $this->value == $value
+            ];
         }
-        return ['value' => $this->value, 'options' => $options];
+
+        return $properties;
     }
 
-    public function setValuesFromDefaults($defaults)
+    public function setValueFromDefault()
     {
-        if (count($defaults)) $this->value = array_shift($defaults);
+        $this->value = $this->default;
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
     }   
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value = $request->get($this->name);
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   

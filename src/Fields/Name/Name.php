@@ -7,11 +7,12 @@ use Helmut\Forms\Utility\Validate;
 
 class Name extends Field {
 
+    public $default = [];
     public $value_first = '';
     public $value_surname = '';
     public $value = '';
 
-    public function getValues() 
+    public function getValue() 
     {
         $values = [];
         $values[$this->name.'_first'] = $this->value_first;
@@ -20,42 +21,43 @@ class Name extends Field {
         return $values;
     }
 
-    public function getButtons()
+    public function getButtonName()
     {
-        return [];
+        //
     }
 
-    public function getProperties() 
+    public function renderWith() 
     {
-        return [    'name_first' => $this->name.'_first', 
-                    'name_surname' => $this->name.'_surname', 
-                    'value_first' => $this->value_first, 
-                    'value_surname' => $this->value_surname,
+        return [    
+            'name_first' => $this->name.'_first', 
+            'name_surname' => $this->name.'_surname', 
+            'value_first' => $this->value_first, 
+            'value_surname' => $this->value_surname,
         ];
     }    
 
-    public function setValuesFromDefaults($defaults)
+    public function setValueFromDefault()
     {
-        if (isset($defaults['first'])) $this->value_first = $defaults['first'];
-        if (isset($defaults['surname'])) $this->value_surname = $defaults['surname'];
+        if (isset($this->default['first'])) $this->value_first = $this->default['first'];
+        if (isset($this->default['surname'])) $this->value_surname = $this->default['surname'];
         $this->value = trim($this->value_first.' '.$this->value_surname);
     }
 
-    public function setValuesFromModel($model)
+    public function setValueFromModel($model)
     {
         if (property_exists($model, $this->name.'_first')) $this->value_first = $model->{$this->name.'_first'};
         if (property_exists($model, $this->name.'_surname')) $this->value_surname = $model->{$this->name.'_surname'};
         $this->value = trim($this->value_first.' '.$this->value_surname);
     }
 
-    public function setValuesFromRequest($request)
+    public function setValueFromRequest($request)
     {
         $this->value_first = $request->get($this->name.'_first');
         $this->value_surname = $request->get($this->name.'_surname');
         $this->value = trim($this->value_first.' '.$this->value_surname);
     }
 
-    public function fillModelWithValues($model)
+    public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name.'_first')) $model->{$this->name.'_first'} = $this->value_first;
         if (property_exists($model, $this->name.'_surname')) $model->{$this->name.'_surname'} = $this->value_surname;

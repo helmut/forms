@@ -62,7 +62,7 @@ class Text extends Field {
     public function validateBetween($min, $max)
     {
         return Validate::stringMin($this->value, $min) 
-                && Validate::stringMax($this->value, $max);
+            && Validate::stringMax($this->value, $max);
     }
 
     public function validateMax($max)

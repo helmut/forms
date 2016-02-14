@@ -363,16 +363,17 @@ abstract class Field {
     public function callValidationMethod($validation, $parameters = []) 
     {
         $method = Str::snake($validation);
-        
-        if ( ! call_user_func_array([$this, $validation], $parameters)) {   
-            $this->errors[$method] = $parameters;
-            return false;
+
+        $validated = call_user_func_array([$this, $validation], $parameters);
+
+        if ($validated) {
+            $this->clearValidationError($method);
+            return true;
         }
 
-        if (isset($this->errors[$method])) unset($this->errors[$method]);
-
-        return true;
-    }
+        $this->addValidationError($method, $parameters);
+        return false;
+    }    
 
     /**
      * Check if field is required.
@@ -415,6 +416,29 @@ abstract class Field {
 
         $this->errors['userDefined'][] = $message;
     }
+
+    /**
+     * Add an internal validation error.
+     *
+     * @param string  $method     
+     * @param array  $parameters     
+     * @return void
+     */
+    protected function addValidationError($method, $parameters) 
+    {
+        $this->errors[$method] = $parameters;
+    }
+
+    /**
+     * Remove all internal validation error for method.
+     *
+     * @param string  $method     
+     * @return void
+     */
+    protected function clearValidationError($method) 
+    {
+        if (isset($this->errors[$method])) unset($this->errors[$method]);
+    }    
 
     /**
      * Get the value of a field.

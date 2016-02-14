@@ -6,7 +6,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/helmut/forms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/helmut/forms/?branch=master)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-A form abstraction library to simplify processing requests. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the default fields types, or build up your own library of reusable and testable fields, and drop them into every application you build.
+A customisable and testable form abstraction library. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the default fields types, or build up your own library of reusable and testable fields, and drop them into every application you build.
 
 * Makes forms testable
 * Abstracts the request not the html
@@ -257,7 +257,7 @@ These methods allow you to interact with your form:
 	```
 
 	![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
-
+    `$form->button('signup')->label('Sign Up');`
 
 * #### text
 
@@ -362,17 +362,11 @@ These methods allow you to interact with your form:
 
 Forms was designed as a framework upon which developers can build a library of modules that can simplify the repetitive task of processing complex requests.
 
-Field types, templates, languages and plugins are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. To start customising, follow these steps. 
+A basic set of fields, templates and plugins are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. 
 
-In the same namespace (or folder) that you created your form in [Step 1](#step-1):
-
-* Create a folder called `Fields`. Then put each of your own custom field types into that folder. For example `App\Forms\Fields\Toggle` where `Toggle` is the name of your new field. Learn how to [create a field](src/Fields/).
-
-* Create a folder called `templates`. Then place your custom template package into that folder. For example `App\Forms\templates\flat` where `flat` is the name of your package. Templates can be rendered by specifying the engine in the filename extension. For example `themes/flat/template.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. Learn how to make [templates](src/templates/).
-
-* Create a `lang` folder. 
-
-* Create a `Plugins` folder. More information about [plugins](src/Plugins/).
+*  [Creating fields](src/Fields/)
+*  [Creating templates](src/templates/)
+*  [Creating plugins](src/Plugins/)
 
 
 ## Templates
@@ -388,7 +382,7 @@ $form->setTemplate('singularity')       // Coming soon...
 $form->setTemplate('neat')              // Coming soon...
 ```
 
-## Language
+## Languages
 
 ```php
 $form->setLanguage('en') 	// Set language to english
@@ -401,10 +395,6 @@ $form->setLanguage('es') 	// Idioma establecida en español
 $form->addPlugin('feedback');   // Instant validation feedback
 $form->addPlugin('memory');   // Autosave as you type
 ```
-
-## Autoloading
-
-By extending `\Helmut\Forms\Form`, all of your custom fields, templates, languages and plugins will be loaded automatically. Your files will always be preferenced over the defaults, so feel free to make copies of them and modify them to fit your application. 
 
 ## Security
 

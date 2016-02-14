@@ -248,7 +248,9 @@ These methods allow you to interact with your form:
 
 ## Field Types
 
-* #### button
+---
+
+    ### button
 
 	```php
 	$form->button('foo')->label('Foo')
@@ -262,7 +264,7 @@ These methods allow you to interact with your form:
 
 	![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
 
-* #### text
+    ### text
 
 	```php
 	$form->text('foo')->label('Foo')->default('bar')->required()
@@ -276,7 +278,7 @@ These methods allow you to interact with your form:
 
 	![text](https://cloud.githubusercontent.com/assets/219623/12344320/e7bdb630-bb76-11e5-8ab4-7c43b3a5d680.png)
 
-* #### name
+    ### name
 
 	```php
 	$form->name('foo')->label('Foo')->default(['first' => 'Bar', 'surname' => 'Baz'])->required()
@@ -286,7 +288,7 @@ These methods allow you to interact with your form:
 
 	![name](https://cloud.githubusercontent.com/assets/219623/12344329/f59dc24a-bb76-11e5-8b7a-1e425130d516.png)
 
-* #### email
+    ### email
 
 	```php
 	$form->email('foo') // Same as `text` but with email validation added.
@@ -294,7 +296,7 @@ These methods allow you to interact with your form:
 
 	![email](https://cloud.githubusercontent.com/assets/219623/12344332/fe70fbd0-bb76-11e5-9671-ee8624f2e3fa.png)
 
-* #### number
+    ### number
 
 	```php
 	$form->number('foo')->label('Foo')->default('123')->required()
@@ -304,7 +306,7 @@ These methods allow you to interact with your form:
 
 	![number](https://cloud.githubusercontent.com/assets/219623/12344336/072ce306-bb77-11e5-8668-e707780cf166.png)
 
-* #### password
+    ### password
 
 	```php
 	$form->password('foo')->label('Foo')->required()
@@ -314,7 +316,7 @@ These methods allow you to interact with your form:
 
 	![password](https://cloud.githubusercontent.com/assets/219623/12344346/10c30bf2-bb77-11e5-8b0b-45cf661ae126.png)
 
-* #### paragraph_text
+    ### paragraph_text
 
 	```php
 	$form->paragraph_text('foo')->label('Foo')->default('bar')->required()
@@ -323,7 +325,7 @@ These methods allow you to interact with your form:
 
 	![paragraph_text](https://cloud.githubusercontent.com/assets/219623/12344352/1a29823e-bb77-11e5-9b29-48ee4a80a975.png)
 
-* #### checkbox
+    ### checkbox
 
 	```php
 	$form->checkbox('foo')->label('Foo')->required()
@@ -334,7 +336,7 @@ These methods allow you to interact with your form:
 
 	![checkbox](https://cloud.githubusercontent.com/assets/219623/12344357/229b2526-bb77-11e5-8bde-54f4a4a9c30e.png)
 
-* #### checkboxes
+    ### checkboxes
 
 	```php
 	$form->checkboxes('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->required()
@@ -347,7 +349,7 @@ These methods allow you to interact with your form:
 
 	![checkboxes](https://cloud.githubusercontent.com/assets/219623/12344360/2af0dbb2-bb77-11e5-9008-bfd02d3969ed.png)
 
-* #### dropdown
+    ### dropdown
 
 	```php
 	$form->dropdown('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->default('baz')->required()
@@ -356,7 +358,7 @@ These methods allow you to interact with your form:
 
 	![dropdown](https://cloud.githubusercontent.com/assets/219623/12344363/324a1c66-bb77-11e5-9963-bba7909fe8e7.png)
 
-* #### search
+    ### search
 
 	```php
 	$form->search('foo')

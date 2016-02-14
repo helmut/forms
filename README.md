@@ -248,6 +248,8 @@ These methods allow you to interact with your form:
 
 ## Field Types
 
+These field types have been included by default:
+
 ### button
 
 ```php
@@ -288,7 +290,13 @@ $form->get('foo') // Returns ['foo_first' => 'Bar', 'foo_surname' => 'Baz', 'foo
 $form->get('foo', 'surname') // Returns 'Baz'
 ```
 
+**Example:** 
+
+`$form->name('name')->label('Name')->required();`
+
 ![name](https://cloud.githubusercontent.com/assets/219623/12344329/f59dc24a-bb76-11e5-8b7a-1e425130d516.png)
+
+---
 
 ### email
 
@@ -296,7 +304,13 @@ $form->get('foo', 'surname') // Returns 'Baz'
 $form->email('foo') // Same as `text` but with email validation added.
 ```
 
+**Example:** 
+
+`$form->email('email')->label('Email Address')->required();`
+
 ![email](https://cloud.githubusercontent.com/assets/219623/12344332/fe70fbd0-bb76-11e5-9671-ee8624f2e3fa.png)
+
+---
 
 ### number
 
@@ -308,6 +322,8 @@ Validations: `between(min, max)`, `min(num)`, `max(num)`, `integer`, `in(array)`
 
 ![number](https://cloud.githubusercontent.com/assets/219623/12344336/072ce306-bb77-11e5-8668-e707780cf166.png)
 
+---
+
 ### password
 
 ```php
@@ -318,6 +334,8 @@ $form->password('foo')->matches('other_hash') // Returns true/false
 
 ![password](https://cloud.githubusercontent.com/assets/219623/12344346/10c30bf2-bb77-11e5-8b0b-45cf661ae126.png)
 
+---
+
 ### paragraph_text
 
 ```php
@@ -326,6 +344,8 @@ $form->get('foo') // Returns 'bar'
 ```
 
 ![paragraph_text](https://cloud.githubusercontent.com/assets/219623/12344352/1a29823e-bb77-11e5-9b29-48ee4a80a975.png)
+
+---
 
 ### checkbox
 
@@ -337,6 +357,8 @@ $form->get('foo') // Returns true/false
 ```
 
 ![checkbox](https://cloud.githubusercontent.com/assets/219623/12344357/229b2526-bb77-11e5-8bde-54f4a4a9c30e.png)
+
+---
 
 ### checkboxes
 
@@ -351,6 +373,8 @@ $form->get('foo') // Returns ['foo_bar' => false, 'foo_baz' => false]
 
 ![checkboxes](https://cloud.githubusercontent.com/assets/219623/12344360/2af0dbb2-bb77-11e5-9008-bfd02d3969ed.png)
 
+---
+
 ### dropdown
 
 ```php
@@ -360,6 +384,8 @@ $form->get('foo') // Returns 'baz'
 
 ![dropdown](https://cloud.githubusercontent.com/assets/219623/12344363/324a1c66-bb77-11e5-9963-bba7909fe8e7.png)
 
+---
+
 ### search
 
 ```php
@@ -368,6 +394,8 @@ $form->get('foo') // Returns ['foo' => 'bar', 'foo_button' => true]
 ```
 
 ![search](https://cloud.githubusercontent.com/assets/219623/12344366/3a4153ee-bb77-11e5-89cd-30f0ced0ea11.png)
+
+---
 
 ## Customisation
 

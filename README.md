@@ -259,7 +259,6 @@ $form->completed('foo') // Returns true if form both submitted and valid
 ```
 
 **Example:** 
-
 `$form->button('signup')->label('Sign Up');`
 
 ![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
@@ -275,7 +274,6 @@ $form->get('foo') // Returns 'bar'
 Validations: `between(min, max)`, `min(num)`, `max(num)`, `alpha`, `alpha_num`, `alpha_dash`, `in(array)`, `not_in(array)`
 
 **Example:** 
-
 `$form->text('address')->label('Address')->required();`
 
 ![text](https://cloud.githubusercontent.com/assets/219623/12344320/e7bdb630-bb76-11e5-8ab4-7c43b3a5d680.png)
@@ -291,7 +289,6 @@ $form->get('foo', 'surname') // Returns 'Baz'
 ```
 
 **Example:** 
-
 `$form->name('name')->label('Name')->required();`
 
 ![name](https://cloud.githubusercontent.com/assets/219623/12344329/f59dc24a-bb76-11e5-8b7a-1e425130d516.png)
@@ -305,7 +302,6 @@ $form->email('foo') // Same as `text` but with email validation added.
 ```
 
 **Example:** 
-
 `$form->email('email')->label('Email Address')->required();`
 
 ![email](https://cloud.githubusercontent.com/assets/219623/12344332/fe70fbd0-bb76-11e5-9671-ee8624f2e3fa.png)

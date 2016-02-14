@@ -256,7 +256,7 @@ These methods allow you to interact with your form:
 	$form->completed('foo') // Returns true if form both submitted and valid
 	```
 
-    *Example: ```php $form->button('signup')->label('Sign Up');```*
+    **Example:** `$form->button('signup')->label('Sign Up');`
 
 	![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
 

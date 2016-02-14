@@ -248,8 +248,6 @@ These methods allow you to interact with your form:
 
 ## Field Types
 
----
-
     ### button
 
 	```php

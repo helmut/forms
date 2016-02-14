@@ -256,7 +256,9 @@ These methods allow you to interact with your form:
 	$form->completed('foo') // Returns true if form both submitted and valid
 	```
 
-    **Example:** `$form->button('signup')->label('Sign Up');`
+    **Example:** 
+
+    `$form->button('signup')->label('Sign Up');`
 
 	![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
 
@@ -267,6 +269,10 @@ These methods allow you to interact with your form:
 	$form->get('foo') // Returns 'bar'
 	```
 	Validations: `between(min, max)`, `min(num)`, `max(num)`, `alpha`, `alpha_num`, `alpha_dash`, `in(array)`, `not_in(array)`
+
+    **Example:** 
+
+    `$form->text('address')->label('Address')->required();`
 
 	![text](https://cloud.githubusercontent.com/assets/219623/12344320/e7bdb630-bb76-11e5-8ab4-7c43b3a5d680.png)
 

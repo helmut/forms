@@ -248,122 +248,126 @@ These methods allow you to interact with your form:
 
 ## Field Types
 
-    ### button
+### button
 
-	```php
-	$form->button('foo')->label('Foo')
-	$form->submitted('foo') // Returns true if form was submitted using this button
-	$form->completed('foo') // Returns true if form both submitted and valid
-	```
+```php
+$form->button('foo')->label('Foo')
+$form->submitted('foo') // Returns true if form was submitted using this button
+$form->completed('foo') // Returns true if form both submitted and valid
+```
 
-    **Example:** 
+**Example:** 
 
-    `$form->button('signup')->label('Sign Up');`
+`$form->button('signup')->label('Sign Up');`
 
-	![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
+![button](https://cloud.githubusercontent.com/assets/219623/12344315/dc723b98-bb76-11e5-98bc-c74a7a63a88b.png)
 
-    ### text
+---
 
-	```php
-	$form->text('foo')->label('Foo')->default('bar')->required()
-	$form->get('foo') // Returns 'bar'
-	```
-	Validations: `between(min, max)`, `min(num)`, `max(num)`, `alpha`, `alpha_num`, `alpha_dash`, `in(array)`, `not_in(array)`
+### text
 
-    **Example:** 
+```php
+$form->text('foo')->label('Foo')->default('bar')->required()
+$form->get('foo') // Returns 'bar'
+```
+Validations: `between(min, max)`, `min(num)`, `max(num)`, `alpha`, `alpha_num`, `alpha_dash`, `in(array)`, `not_in(array)`
 
-    `$form->text('address')->label('Address')->required();`
+**Example:** 
 
-	![text](https://cloud.githubusercontent.com/assets/219623/12344320/e7bdb630-bb76-11e5-8ab4-7c43b3a5d680.png)
+`$form->text('address')->label('Address')->required();`
 
-    ### name
+![text](https://cloud.githubusercontent.com/assets/219623/12344320/e7bdb630-bb76-11e5-8ab4-7c43b3a5d680.png)
 
-	```php
-	$form->name('foo')->label('Foo')->default(['first' => 'Bar', 'surname' => 'Baz'])->required()
-	$form->get('foo') // Returns ['foo_first' => 'Bar', 'foo_surname' => 'Baz', 'foo' => 'Bar Baz']
-	$form->get('foo', 'surname') // Returns 'Baz'
-	```
+---
 
-	![name](https://cloud.githubusercontent.com/assets/219623/12344329/f59dc24a-bb76-11e5-8b7a-1e425130d516.png)
+### name
 
-    ### email
+```php
+$form->name('foo')->label('Foo')->default(['first' => 'Bar', 'surname' => 'Baz'])->required()
+$form->get('foo') // Returns ['foo_first' => 'Bar', 'foo_surname' => 'Baz', 'foo' => 'Bar Baz']
+$form->get('foo', 'surname') // Returns 'Baz'
+```
 
-	```php
-	$form->email('foo') // Same as `text` but with email validation added.
-	```
+![name](https://cloud.githubusercontent.com/assets/219623/12344329/f59dc24a-bb76-11e5-8b7a-1e425130d516.png)
 
-	![email](https://cloud.githubusercontent.com/assets/219623/12344332/fe70fbd0-bb76-11e5-9671-ee8624f2e3fa.png)
+### email
 
-    ### number
+```php
+$form->email('foo') // Same as `text` but with email validation added.
+```
 
-	```php
-	$form->number('foo')->label('Foo')->default('123')->required()
-	$form->get('foo') // Returns '123'
-	```
-	Validations: `between(min, max)`, `min(num)`, `max(num)`, `integer`, `in(array)`, `not_in(array)`
+![email](https://cloud.githubusercontent.com/assets/219623/12344332/fe70fbd0-bb76-11e5-9671-ee8624f2e3fa.png)
 
-	![number](https://cloud.githubusercontent.com/assets/219623/12344336/072ce306-bb77-11e5-8668-e707780cf166.png)
+### number
 
-    ### password
+```php
+$form->number('foo')->label('Foo')->default('123')->required()
+$form->get('foo') // Returns '123'
+```
+Validations: `between(min, max)`, `min(num)`, `max(num)`, `integer`, `in(array)`, `not_in(array)`
 
-	```php
-	$form->password('foo')->label('Foo')->required()
-	$form->get('foo') // Returns 'hashed_bar'
-	$form->password('foo')->matches('other_hash') // Returns true/false
-	```
+![number](https://cloud.githubusercontent.com/assets/219623/12344336/072ce306-bb77-11e5-8668-e707780cf166.png)
 
-	![password](https://cloud.githubusercontent.com/assets/219623/12344346/10c30bf2-bb77-11e5-8b0b-45cf661ae126.png)
+### password
 
-    ### paragraph_text
+```php
+$form->password('foo')->label('Foo')->required()
+$form->get('foo') // Returns 'hashed_bar'
+$form->password('foo')->matches('other_hash') // Returns true/false
+```
 
-	```php
-	$form->paragraph_text('foo')->label('Foo')->default('bar')->required()
-	$form->get('foo') // Returns 'bar'
-	```
+![password](https://cloud.githubusercontent.com/assets/219623/12344346/10c30bf2-bb77-11e5-8b0b-45cf661ae126.png)
 
-	![paragraph_text](https://cloud.githubusercontent.com/assets/219623/12344352/1a29823e-bb77-11e5-9b29-48ee4a80a975.png)
+### paragraph_text
 
-    ### checkbox
+```php
+$form->paragraph_text('foo')->label('Foo')->default('bar')->required()
+$form->get('foo') // Returns 'bar'
+```
 
-	```php
-	$form->checkbox('foo')->label('Foo')->required()
-	$form->checkbox('foo')->checked() // Check the box
-	$form->checkbox('foo')->unchecked() // Uncheck the box
-	$form->get('foo') // Returns true/false
-	```
+![paragraph_text](https://cloud.githubusercontent.com/assets/219623/12344352/1a29823e-bb77-11e5-9b29-48ee4a80a975.png)
 
-	![checkbox](https://cloud.githubusercontent.com/assets/219623/12344357/229b2526-bb77-11e5-8bde-54f4a4a9c30e.png)
+### checkbox
 
-    ### checkboxes
+```php
+$form->checkbox('foo')->label('Foo')->required()
+$form->checkbox('foo')->checked() // Check the box
+$form->checkbox('foo')->unchecked() // Uncheck the box
+$form->get('foo') // Returns true/false
+```
 
-	```php
-	$form->checkboxes('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->required()
-	$form->checkboxes('foo')->checked() // Check all the boxes
-	$form->checkboxes('foo')->checked(['bar']) // Check some of the boxes
-	$form->checkboxes('foo')->unchecked() // Uncheck all the boxes
-	$form->checkboxes('foo')->unchecked(['baz']) // Uncheck some of the boxes
-	$form->get('foo') // Returns ['foo_bar' => false, 'foo_baz' => false]
-	```
+![checkbox](https://cloud.githubusercontent.com/assets/219623/12344357/229b2526-bb77-11e5-8bde-54f4a4a9c30e.png)
 
-	![checkboxes](https://cloud.githubusercontent.com/assets/219623/12344360/2af0dbb2-bb77-11e5-9008-bfd02d3969ed.png)
+### checkboxes
 
-    ### dropdown
+```php
+$form->checkboxes('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->required()
+$form->checkboxes('foo')->checked() // Check all the boxes
+$form->checkboxes('foo')->checked(['bar']) // Check some of the boxes
+$form->checkboxes('foo')->unchecked() // Uncheck all the boxes
+$form->checkboxes('foo')->unchecked(['baz']) // Uncheck some of the boxes
+$form->get('foo') // Returns ['foo_bar' => false, 'foo_baz' => false]
+```
 
-	```php
-	$form->dropdown('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->default('baz')->required()
-	$form->get('foo') // Returns 'baz'
-	```
+![checkboxes](https://cloud.githubusercontent.com/assets/219623/12344360/2af0dbb2-bb77-11e5-9008-bfd02d3969ed.png)
 
-	![dropdown](https://cloud.githubusercontent.com/assets/219623/12344363/324a1c66-bb77-11e5-9963-bba7909fe8e7.png)
+### dropdown
 
-    ### search
+```php
+$form->dropdown('foo')->label('Foo')->options(['bar' => 'Bar', 'baz' => 'Baz'])->default('baz')->required()
+$form->get('foo') // Returns 'baz'
+```
 
-	```php
-	$form->search('foo')
-	$form->get('foo') // Returns ['foo' => 'bar', 'foo_button' => true]	
-	```
+![dropdown](https://cloud.githubusercontent.com/assets/219623/12344363/324a1c66-bb77-11e5-9963-bba7909fe8e7.png)
 
-	![search](https://cloud.githubusercontent.com/assets/219623/12344366/3a4153ee-bb77-11e5-89cd-30f0ced0ea11.png)
+### search
+
+```php
+$form->search('foo')
+$form->get('foo') // Returns ['foo' => 'bar', 'foo_button' => true]	
+```
+
+![search](https://cloud.githubusercontent.com/assets/219623/12344366/3a4153ee-bb77-11e5-89cd-30f0ced0ea11.png)
 
 ## Customisation
 

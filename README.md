@@ -399,9 +399,7 @@ $form->get('foo') // Returns ['foo' => 'bar', 'foo_button' => true]
 
 ## Customisation
 
-Forms was designed as a framework upon which developers can build a library of modules that can simplify the repetitive task of processing complex requests.
-
-A basic set of fields, templates and plugins are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. 
+Forms was designed as a framework upon which developers can build a library of modules that can simplify the repetitive task of processing complex requests. A basic set of fields, templates and plugins are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. 
 
 *  [Creating fields](src/Fields/)
 *  [Creating templates](src/templates/)

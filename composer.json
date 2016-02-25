@@ -1,6 +1,6 @@
 {
 	"name": "helmut/forms",
-	"description": "Form abstraction to simplify the processing of complex requests.",
+	"description": "A customisable and testable form abstraction library.",
 	"keywords": [
 		"form", "field", "request", "model", "text", "email", "name", "checkbox", 
 		"checkboxes", "dropdown", "password", "input", "twig", "blade", "mustache", 

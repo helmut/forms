@@ -4,4 +4,6 @@ Forms gives you the tools to create your own custom fields. By extending the bas
 
 In the same namespace (or folder) that you created your form in [Step 1](/README.md#step-1), create a folder called `Fields`. For example `path/to/my/app/forms/Fields`.
 
+## Creating a field
+
 ...

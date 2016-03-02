@@ -85,7 +85,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-6. The `fillModelWithValue` method is the opposite of the `setValueFromModel`. Take this field's value and fill the model with it.
+6. The `fillModelWithValue` method is the opposite of the `setValueFromModel`. Take this field's value and fill the matching property of the model with it.
 
     ```php
     public function fillModelWithValue($model)

@@ -67,7 +67,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }
     ```
 
-4. The `setValueFromModel` method is used to set the current value of the field using a model. So to implement this method we really just want to check if the passed in model has the same name property as the field and then set the value accordingly.
+4. The `setValueFromModel` method is used to set the current value of the field using a model. So to implement this method we really just want to check if the passed in model has the same name property as the field and then set the value accordingly. The name of our field is a property of the parent class and can be retrieved using `$this->name`.
 
     ```php
     public function setValueFromModel($model)
@@ -76,7 +76,14 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
+4. The `setValueFromRequest` method is used to set the current value of the field using the request. 
 
+    ```php
+    public function setValueFromRequest($request)
+    {
+
+    }  
+    ```
 
 
 

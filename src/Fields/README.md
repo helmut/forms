@@ -151,7 +151,7 @@ So now we have a working field, but we want to add some additional validations.
 3. Make sure the response is not below zero
 4. Allow the option of setting a minimum
 
-So 1 - 3 we want those validations to happen every time by default. Number 4 however, we want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
+So for validations 1 - 3, we need them to happen every time by default. Validation 4 however, we want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
 
 
 

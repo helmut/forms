@@ -29,7 +29,7 @@ class Age extends \Helmut\Forms\Field {
 
 Because you are extending `Helmut\Forms\Field` there will be a few abstract methods that you will need to implement. Let's walk through each one below
 
-1. The `getValue` method returns the current value of the field (fancy that eh?). However we have an empty class, how do we get the value? Well it is up to you to define how the field stores it's current value. In this case we'll add a property to the class to hold the current value and return it using the `getValue` method.
+1. The `getValue` method returns the current value of the field (fancy that eh?). It is up to you to define how the field stores it's current value. In this case we'll add a property to the class to hold the current value and return it using the `getValue` method.
 
     ```php
     public $value = '';

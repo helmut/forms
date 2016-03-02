@@ -85,6 +85,24 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
+6. The `fillModelWithValue` method is the opposite of the `setValueFromModel`. Take this field's value and fill the model with it.
 
+    ```php
+    public function fillModelWithValue($model)
+    {
+        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+    }  
+    ```
+
+7. The `validateRequired` method is the only validation that you are forced to implement. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. So in this case we just check if the value property has anything in it.
+
+    ```php
+    public function validateRequired()
+    {
+        return ! empty($this->value);
+    }  
+    ```
+
+### Template
 
 

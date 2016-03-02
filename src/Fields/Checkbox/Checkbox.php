@@ -6,7 +6,7 @@ use Helmut\Forms\Field;
 
 class Checkbox extends Field {
 
-    public $value = false;
+    protected $value = false;
 
     public function getValue() 
     {
@@ -53,6 +53,11 @@ class Checkbox extends Field {
     public function fillModelWithValue($model)
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value ? 1 : 0;
+    }
+
+    public function validate()
+    {
+        return true;
     }
 
     public function validateRequired()

@@ -143,7 +143,14 @@ abstract class Field {
     abstract public function fillModelWithValue($model);
 
     /**
-     * Return if field passes required validation.
+     * Return if field validates.
+     *
+     * @return boolean
+     */    
+    abstract public function validate();
+
+    /**
+     * Return if field validates required.
      *
      * @return boolean
      */    

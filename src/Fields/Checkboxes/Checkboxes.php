@@ -6,9 +6,9 @@ use Helmut\Forms\Field;
 
 class Checkboxes extends Field {
 
-    public $default = [];
-    public $options = [];
-    public $values = [];
+    protected $default = [];
+    protected $options = [];
+    protected $values = [];
 
     public function setOptions($options)
     {
@@ -108,6 +108,11 @@ class Checkboxes extends Field {
         foreach (array_keys($this->options) as $key) {
             if (property_exists($model, $this->name.'_'.$key)) $model->{$this->name.'_'.$key} = $this->values[$key] ? 1 : 0;
         }
+    }
+
+    public function validate()
+    {
+        return true;
     }
 
     public function validateRequired()

@@ -837,10 +837,13 @@ abstract class Form {
 
                 $paths = $this->langPaths($field);
 
+                $paths = array_reverse($paths);
+
                 $this->translations[$field->type][$lang] = $this->loadTranslations($lang, $paths);
             }
 
-            $translations = array_merge($this->translations[$field->type][$lang], $translations);
+            $translations = array_merge($translations, $this->translations[$field->type][$lang]);
+
         } 
 
         return $translations;
@@ -1043,7 +1046,17 @@ abstract class Form {
     public function getPlugins()
     {
         return $this->plugins;
-    }   
+    }
+
+    /**
+     * Get all of the namespaces
+     *
+     * @return array
+     */
+    public function getNamespaces()
+    {
+        return $this->namespaces;
+    }       
 
     /**
      * Requests directly on the object could be trying to

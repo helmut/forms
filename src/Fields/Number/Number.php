@@ -7,8 +7,8 @@ use Helmut\Forms\Utility\Validate;
 
 class Number extends Field {
 
-    public $value = '';
-    public $width = '30%';
+    protected $value = '';
+    protected $width = '30%';
 
     public function setWidth($width)
     {

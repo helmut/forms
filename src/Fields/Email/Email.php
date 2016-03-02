@@ -7,7 +7,7 @@ use Helmut\Forms\Utility\Validate;
 
 class Email extends Field {
 
-    public $value = '';
+    protected $value = '';
 
     public function getValue()
     {

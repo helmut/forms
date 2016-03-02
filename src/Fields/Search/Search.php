@@ -7,7 +7,7 @@ use Helmut\Forms\Utility\Validate;
 
 class Search extends Field {
 
-    public $value = '';
+    protected $value = '';
 
     public function getValue()
     {
@@ -44,6 +44,11 @@ class Search extends Field {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   
 
+    public function validate()
+    {
+        return true;
+    }
+    
     public function validateRequired()
     {
         return Validate::required($this->value);

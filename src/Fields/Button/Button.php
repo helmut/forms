@@ -41,6 +41,11 @@ class Button extends Field {
         //
     }
 
+    public function validate()
+    {
+        return true;
+    }
+
     public function validateRequired()
     {
         return true;

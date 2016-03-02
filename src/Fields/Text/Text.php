@@ -7,8 +7,8 @@ use Helmut\Forms\Utility\Validate;
 
 class Text extends Field {
 
-    public $value = '';
-    public $width = '100%';
+    protected $value = '';
+    protected $width = '100%';
 
     public function setWidth($width)
     {
@@ -53,6 +53,11 @@ class Text extends Field {
     {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   
+
+    public function validate()
+    {
+        return true;
+    }
 
     public function validateRequired()
     {

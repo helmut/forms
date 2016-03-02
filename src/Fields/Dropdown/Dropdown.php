@@ -7,9 +7,8 @@ use Helmut\Forms\Utility\Validate;
 
 class Dropdown extends Field {
 
-    public $options = [];
-    
-    public $value = '';
+    protected $options = [];
+    protected $value = '';
 
     public function setOptions($options)
     {
@@ -65,6 +64,11 @@ class Dropdown extends Field {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   
 
+    public function validate()
+    {
+        return true;
+    }
+    
     public function validateRequired()
     {
         return Validate::required($this->value);

@@ -94,7 +94,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. In most cases you can simply return true but in this case we want to perform a couple of validations. We want to make sure the response is numeric, an integer and greater than zero.
+7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want to perform a couple of extra validations: make sure the response is numeric, an integer and greater than zero.
 
     ```php
     public function validate()
@@ -160,9 +160,9 @@ We also want to be able to have the option of setting a minimum. We want to be a
 In order to create a `min(21)` validation we need to add a method to our `Age` class. Additional validations must be prefixed with the word validate - `validateMin`.
 
 ```php
-function validateMin($min)
+public function validateMin($min)
 {
-    return $this->value > $min;
+    return $this->value >= $min;
 }
 ```
 
@@ -176,5 +176,5 @@ return [
 
 As you can see, it works!
 
-![age-error](https://cloud.githubusercontent.com/assets/219623/13454919/552cc9ca-e0ae-11e5-9005-19d55bdd4a84.png)
+
 

@@ -32,7 +32,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
 1. The `getValue` method returns the current value of the field (fancy that eh?). It is up to you to define how the field stores it's current value. In this case we'll add a property to the class to hold the current value and return it using the `getValue` method.
 
     ```php
-    public $value = '';
+    protected $value = '';
 
     public function getValue()
     {

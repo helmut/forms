@@ -14,7 +14,7 @@ In the same namespace (or folder) that you created your form in [Step 1](/README
 
 ### Class
 
-Create a class named `Age` that extends `Helmut\Forms\Field`. Save the file at `path/to/my/app/forms/Fields/Age/Age.php`.
+Create a class named `Age` that extends `Helmut\Forms\Field`. 
 
 ```php
 // File: path/to/my/app/forms/Fields/Age/Age.php

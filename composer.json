@@ -30,8 +30,7 @@
     },
     "autoload-dev": {
         "files": [
-            "tests/unit/FormTestCase.php",
-            "demo/Forms/Form.php"
+            "tests/unit/FormTestCase.php"
         ],
 		"psr-4": {
             "Helmut\\Forms\\Testing\\Stubs\\": "tests/unit/stubs/",

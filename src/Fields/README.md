@@ -19,9 +19,11 @@ Create a class named `Age` that extends `Helmut\Forms\Field`.
 ```php
 // File: path/to/my/app/forms/Fields/Age/Age.php
 
-namespace App\Forms;
+namespace App\Forms\Fields\Age;
 
-class Age extends \Helmut\Forms\Field {
+use \Helmut\Forms\Field;
+
+class Age extends Field {
     
 
 }
@@ -111,6 +113,68 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
         return ! empty($this->value);
     }  
     ```
+
+So your full `Age` class should look like this:
+
+```php
+namespace App\Forms\Fields\Age;
+
+class Age extends \Helmut\Forms\Field {
+
+    protected $value = '';
+
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function getButtonName()
+    {
+
+    }
+
+    public function renderWith()
+    {
+        return ['value' => $this->value];
+    }
+
+    public function setValueFromDefault()
+    {
+        $this->value = $this->default;
+    }
+
+    public function setValueFromModel($model)
+    {
+        if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
+    }
+
+    public function setValueFromRequest($request)
+    {
+        $this->value = $request->get($this->name);
+    }
+
+    public function fillModelWithValue($model)
+    {
+        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+    }
+    
+    public function validate()
+    {
+        return  is_numeric($this->value) && $this->value > 0;
+    }
+
+    public function validateRequired()
+    {
+        return ! empty($this->value);
+    }    
+
+    public function validateMin($min)
+    {
+        return $this->value >= $min;
+    }    
+
+}
+```
 
 ### Template
 

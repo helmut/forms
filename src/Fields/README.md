@@ -131,6 +131,8 @@ The next step is to try out your field.
 ```php
 // Build the form
 $form = new App\Forms\Form;
+
+// Define the new field
 $form->age('age')->label('Age')->required();
 
 // Render

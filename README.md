@@ -6,7 +6,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/helmut/forms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/helmut/forms/?branch=master)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-A customisable and testable form abstraction library. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the default fields types, or build up your own library of reusable and testable fields, and drop them into every application you build.
+A customisable and testable form abstraction library. Think of it as a request model on steroids. We all handle forms in different ways. Forms reduces the complexity and allows you focus on design. Use the included default fields, or build up your own library of reusable and testable fields, and drop them into every application you build.
 
 * Makes forms testable
 * Abstracts the request not the html
@@ -17,7 +17,7 @@ A customisable and testable form abstraction library. Think of it as a request m
 * Built in validation
 
 
----
+## Jump to Section
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -399,7 +399,7 @@ $form->get('foo') // Returns ['foo' => 'bar', 'foo_button' => true]
 
 ## Customisation
 
-Forms was designed as a framework upon which developers can build a library of modules that can simplify the repetitive task of processing complex requests. A basic set of fields, templates and plugins are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. 
+Forms was designed as a framework upon which developers can build a library of modules to simplify the repetitive task of processing complex requests. A basic set of fields and templates are included, however the expectation is that you will use those as a starting point for customisation. By rolling your own, you can design, build and test them once, and drop them into any application. 
 
 *  [Creating fields](src/Fields/)
 *  [Creating templates](src/templates/)

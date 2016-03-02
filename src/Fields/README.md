@@ -49,12 +49,12 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }
     ```
 
-3. The `renderWith` method should return an array of properties that are passed to the template when rendering. This will come in handy when we create the template for this field but for now simply implement an empty method.
+3. The `renderWith` method should return an array of properties to be passed to the template when rendering. The only property we have at the moment is value so let's just return that. Other properties such as id, form_id, name, type, label, required, valid and invalid status are included automatically.
 
     ```php
     public function renderWith()
     {
-        
+        return ['value' => $this->value];
     }
     ```
 
@@ -105,9 +105,20 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
 
 ### Template
 
-So now we have created the structure of the field, we are ready to design how it is going to look.
+Create a folder called `templates` for your age field - `path/to/my/app/forms/Fields/Age/templates`. Then create a folder within this new templates folder with the same name as your theme. So if we are using the default theme, the folder will be called `bootstrap` - `path/to/my/app/forms/Fields/Age/templates/bootstrap`.
 
-Create a folder called `templates` for your age field - `path/to/my/app/forms/Fields/Age/templates`. 
+Inside the theme folder create a file called `age.mustache.php`. Templates can be rendered by specifying the engine in the filename extension. For example `age.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. 
 
-Create a folder within this new templates folder with the same name as your theme. So using the default them the folder will be called `bootstrap` - `path/to/my/app/forms/Fields/Age/templates/bootstrap`.
+```
+// File: path/to/my/app/forms/Fields/Age/templates/bootstrap/age.mustache.php
 
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" style="margin-bottom:10px">
+            <label>{{ label }}{{# required }} <span style="font-weight:normal" title="{{ lang.required }}">*</span>{{/ required}}</label>
+            <input name="{{ name }}" value="{{ value }}" type="text" class="form-control" style="width:25%">
+        </div>
+    </div>
+</div>
+
+```

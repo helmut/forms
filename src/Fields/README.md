@@ -49,7 +49,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }
     ```
 
-3. The `renderWith` method should return an array of properties to be passed to the template when rendering. The only property we have at the moment is value so let's just return that. Other properties such as id, form_id, name, type, label, required, valid and invalid status are included automatically.
+3. The `renderWith` method should return an array of properties to be passed to the template when rendering. The only property we have at the moment is value so let's just return that. Other properties such as `id`, `form_id`, `name`, `type`, `label`, `required`, `valid` and `invalid` status are included automatically.
 
     ```php
     public function renderWith()

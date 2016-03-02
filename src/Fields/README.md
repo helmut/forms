@@ -94,7 +94,18 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validateRequired` method is the only validation that you are forced to implement. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. So in this case we just check if the value property is not empty.
+7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. In most cases you can simply return true but in this case we want to perform a couple of validations. We want to make sure the response is numeric, an integer and greater than zero.
+
+    ```php
+    public function validate()
+    {
+        return  is_numeric($this->value) &&
+                is_integer($this->value) &&
+                $this->value > 0;
+    }  
+    ```
+
+8. The `validateRequired` method is the only other validation that you are forced to implement. We can just check that the value property is not empty.
 
     ```php
     public function validateRequired()
@@ -142,38 +153,23 @@ echo $form->render();
 ![age](https://cloud.githubusercontent.com/assets/219623/13453897/b9848252-e0a7-11e5-9c81-eafa13dd8d67.png)
 
 
-### Additional Validations
+### Additional Validation
 
-So now we have a working field, but we want to add some additional validations.
+We also want to be able to have the option of setting a minimum. We want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
 
-1. Make sure the response is numeric
-2. Make sure the response is an integer 1, 2, 3, etc
-3. Make sure the response is not below zero
-4. Allow the option of setting a minimum
-
-So for validations 1 - 3, we need them to happen every time by default. Validation 4 however, we want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
-
-In our `Age` class, we can implement a method named `validate` and it is called every time the field is validated. This is where we can perform validations 1-3. To create a `min(21)` validation we simply define a method prefixed with the word validate - `validateMin`.
+In order to create a `min(21)` validation we need to add a method to our `Age` class. Additional validations must be prefixed with the word validate - `validateMin`.
 
 ```php
-function validate()
-{
-    return  is_numeric($this->value) &&
-            is_integer($this->value) &&
-            $this->value > 0;
-}
-
 function validateMin($min)
 {
     return $this->value > $min;
 }
 ```
 
-To format error messages we can use a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. The error messages will be picked up automatically.
+To format the error message we can use a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. If named correctly, the error message will be picked up automatically.
 
 ```php
 return [
-    'validate' => 'The [field] field must be numeric and greater than zero.',
     'validate_min' => 'The [field] field must be a minimum of [min].',
 ];
 ```

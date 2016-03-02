@@ -153,7 +153,7 @@ So now we have a working field, but we want to add some additional validations.
 
 So for validations 1 - 3, we need them to happen every time by default. Validation 4 however, we want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
 
-If you implement a `validate` method it will be called every time. This is where we can perform validations 1-3. To create a `min(21)` validation we simply define a method prefixed with the word validate. Eg. `validateMin`.
+In our `Age` class, we can implement a method named `validate` and it is called every time the field is validated. This is where we can perform validations 1-3. To create a `min(21)` validation we simply define a method prefixed with the word validate - `validateMin`.
 
 ```php
 function validate()
@@ -178,7 +178,7 @@ return [
 ];
 ```
 
-Test it out!
+As you can see, it works!
 
 ![age-error](https://cloud.githubusercontent.com/assets/219623/13454919/552cc9ca-e0ae-11e5-9005-19d55bdd4a84.png)
 

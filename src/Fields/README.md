@@ -94,7 +94,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want make sure the response is numeric and greater than zero.
+7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want make sure the response is always numeric and greater than zero.
 
     ```php
     public function validate()

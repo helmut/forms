@@ -119,7 +119,9 @@ So your full `Age` class should look like this:
 ```php
 namespace App\Forms\Fields\Age;
 
-class Age extends \Helmut\Forms\Field {
+use \Helmut\Forms\Field;
+
+class Age extends Field {
 
     protected $value = '';
 

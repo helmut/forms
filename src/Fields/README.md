@@ -105,9 +105,9 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
 
 ### Template
 
-Create a folder called `templates` for your age field - `path/to/my/app/forms/Fields/Age/templates`. Then create a folder within this new templates folder with the same name as your theme. So if we are using the default theme, the folder will be called `bootstrap` - `path/to/my/app/forms/Fields/Age/templates/bootstrap`.
+Create a folder called `templates` for your age field - `path/to/my/app/forms/Fields/Age/templates`. Then create a subfolder with the same name as your theme. So if we are using the default theme, the folder will be called `bootstrap` - `path/to/my/app/forms/Fields/Age/templates/bootstrap`.
 
-Inside the theme folder create a file called `age.mustache.php`. Templates can be rendered by specifying the engine in the filename extension. For example `age.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. 
+Add a new template file named `age.mustache.php`. Templates can be rendered by specifying the engine in the filename extension. For example `age.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. 
 
 ```
 // File: path/to/my/app/forms/Fields/Age/templates/bootstrap/age.mustache.php

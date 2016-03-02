@@ -162,7 +162,7 @@ public function validateMin($min)
 }
 ```
 
-Format the error message in a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. The error message will be picked up automatically.
+Format the error message within a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. The error message will be picked up automatically.
 
 ```php
 return [

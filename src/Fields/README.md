@@ -57,3 +57,13 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
             
         }
     ```
+
+4. The `setValueFromDefault` method is used to set the current value of the field using the defaults on the parent. By extending `Helmut\Forms\Field` we have access to a `default` property that contains any specified default values. Defauts are specied when your field is created - for example `$form->age('age')->default(18)`. This method is only called if a default has actually been set, so you can be sure that `$this->default` contains a value.
+
+    ```php
+        public function setValueFromDefault()
+        {
+            $this->value = $this->default;        
+        }
+    ```
+

@@ -124,6 +124,25 @@ Add a new template file named `age.mustache.php`. Templates can be rendered by s
 
 As you can see, you have full control over how the field is rendered.
 
-### That's it, your done!
+### Try it out
 
 The next step is to try out your field.
+
+```php
+// Build the form
+$form = new App\Forms\Form;
+$form->age('age')->label('Age')->required();
+
+// Render
+echo $form->render();
+```
+
+![age](https://cloud.githubusercontent.com/assets/219623/13453897/b9848252-e0a7-11e5-9c81-eafa13dd8d67.png)
+
+
+### Adding Validations
+
+So now we have a working field but what if we want to add some extra validations.
+
+
+

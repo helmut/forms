@@ -94,14 +94,12 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want to perform a couple of extra validations: make sure the response is numeric, an integer and greater than zero.
+7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want make sure the response is numeric and greater than zero.
 
     ```php
     public function validate()
     {
-        return  is_numeric($this->value) &&
-                is_integer($this->value) &&
-                $this->value > 0;
+        return  is_numeric($this->value) && $this->value > 0;
     }  
     ```
 
@@ -155,7 +153,7 @@ echo $form->render();
 
 ### Additional Validation
 
-We also want to be able to have the option of setting a minimum. We want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
+We also want to be able to have the option of setting a minimum. For example `$form->age('age')->label('Age')->min(21)`.
 
 In order to create a `min(21)` validation we need to add a method to our `Age` class. Additional validations must be prefixed with the word validate - `validateMin`.
 
@@ -166,7 +164,7 @@ public function validateMin($min)
 }
 ```
 
-To format the error message we can use a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. If named correctly, the error message will be picked up automatically.
+Format the error message in a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. The error message will be picked up automatically.
 
 ```php
 return [
@@ -176,5 +174,5 @@ return [
 
 As you can see, it works!
 
-
+![age-error](https://cloud.githubusercontent.com/assets/219623/13455802/b678f046-e0b3-11e5-9d26-43d84d690e31.png)
 

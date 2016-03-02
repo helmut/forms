@@ -105,4 +105,9 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
 
 ### Template
 
+So now we have created the structure of the field, we are ready to design how it is going to look.
+
+Create a folder called `templates` for your age field - `path/to/my/app/forms/Fields/Age/templates`. 
+
+Create a folder within this new templates folder with the same name as your theme. So using the default them the folder will be called `bootstrap` - `path/to/my/app/forms/Fields/Age/templates/bootstrap`.
 

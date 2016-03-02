@@ -153,9 +153,7 @@ echo $form->render();
 
 ### Additional Validation
 
-We also want to be able to have the option of setting a minimum. For example `$form->age('age')->label('Age')->min(21)`.
-
-In order to create a `min(21)` validation we need to add a method to our `Age` class. Additional validations must be prefixed with the word validate - `validateMin`.
+We also want to be able to have the option of setting a minimum. For example `$form->age('age')->label('Age')->min(21)`. To create a `min(21)` validation we need to add a method to our `Age` class. Additional validations must be prefixed with the word validate - `validateMin`.
 
 ```php
 public function validateMin($min)

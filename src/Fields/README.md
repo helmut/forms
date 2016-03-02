@@ -135,7 +135,7 @@ As you can see, you have full control over how the field is rendered.
 
 ### Try it out
 
-Ok. We're practically done! Let's try out your new age field.
+We're almost finished! But let's try out this new age field before we continue.
 
 ```php
 // Build the form

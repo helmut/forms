@@ -153,7 +153,7 @@ So now we have a working field, but we want to add some additional validations.
 
 So for validations 1 - 3, we need them to happen every time by default. Validation 4 however, we want to be able to turn on/off when defining the field. For example `$form->age('age')->label('Age')->min(21)`.
 
-If you implement a `validate` method it will be called every time. 
+If you implement a `validate` method it will be called every time. This is where we can perform validations 1-3. To create a `min(21)` validation we simply define a method prefixed with the word validate. Eg. `validateMin`.
 
 ```php
 function validate()
@@ -169,7 +169,7 @@ function validateMin($min)
 }
 ```
 
-For the error messages we need to create a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for the english language called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`.
+To format error messages we can use a language file. Create a folder called `lang` for your age field - `path/to/my/app/forms/Fields/Age/lang`. Then create a file for english called `en.php` - `path/to/my/app/forms/Fields/Age/lang/en.php`. The error messages will be picked up automatically.
 
 ```php
 return [
@@ -177,3 +177,8 @@ return [
     'validate_min' => 'The [field] field must be a minimum of [min].',
 ];
 ```
+
+Test it out!
+
+![age-error](https://cloud.githubusercontent.com/assets/219623/13454919/552cc9ca-e0ae-11e5-9005-19d55bdd4a84.png)
+

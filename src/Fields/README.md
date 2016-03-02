@@ -6,7 +6,7 @@ Let's work on adding a new type of field together...
 
 ## Creating a field
 
-We're going to create a new type of field to allow the user to submit their age in years. A nice simple example that requires some validation.
+We're going to create a new type of field to allow the user to submit their age in years. A nice simple example that requires some validation. Usage of this new field will be `$form->age('foo')`. Let's get started!
 
 ### Folder Structure
 

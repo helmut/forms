@@ -94,7 +94,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validateRequired` method is the only validation that you are forced to implement. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. So in this case we just check if the value property has anything in it.
+7. The `validateRequired` method is the only validation that you are forced to implement. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. So in this case we just check if the value property is not empty.
 
     ```php
     public function validateRequired()

@@ -10,11 +10,11 @@ We're going to create a new type of field to allow the user to submit their age 
 
 ### Folder Structure
 
-Before we get started, in the same namespace (or folder) that you created your form in [Step 1](/README.md#step-1), create a folder called `Fields`. For example `path/to/my/app/forms/Fields`. Next let's create a folder called `Age` that will contain our new field inside the folder we just created - like so `path/to/my/app/forms/Fields/Age`.
+In the same namespace (or folder) that you created your form in [Step 1](/README.md#step-1), create a folder called `Fields`. For example `path/to/my/app/forms/Fields`. Next, inside the folder we just created, create another folder called `Age` that will contain everything for our new field - like so `path/to/my/app/forms/Fields/Age`.
 
 ### Class
 
-Now that you have set up a folder for your field we need to create a new class called `Age` that extends `Helmut\Forms\Field`. You can save that as `path/to/my/app/forms/Fields/Age/Age.php`.
+Create a class named `Age` that extends `Helmut\Forms\Field`. Save the file at `path/to/my/app/forms/Fields/Age/Age.php`.
 
 ```php
 // File: path/to/my/app/forms/Fields/Age/Age.php

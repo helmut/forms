@@ -76,7 +76,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-5. The `setValueFromRequest` method is used to set the current value of the field using the request object. Fetch the value for this field out of the request and set it. 
+5. The `setValueFromRequest` method is used to set the current value of the field using the request object. Fetch the value for this field out of the request (using the name again) and set it. 
 
     ```php
     public function setValueFromRequest($request)

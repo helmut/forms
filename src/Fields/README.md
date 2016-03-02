@@ -140,12 +140,12 @@ echo $form->render();
 ![age](https://cloud.githubusercontent.com/assets/219623/13453897/b9848252-e0a7-11e5-9c81-eafa13dd8d67.png)
 
 
-### Adding Validations
+### Additional Validations
 
-So now we have a working field but what if we want to add some extra validations.
+So now we have a working field, but we want to add some additional validations.
 
 1. Make sure the response is numeric
-2. Make sure the response is a natural number 1, 2, 3, etc
+2. Make sure the response is an integer 1, 2, 3, etc
 3. Make sure the response is not below zero
 4. Allow the option of setting a minimum
 

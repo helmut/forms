@@ -6,7 +6,7 @@ Let's work on adding a new type of field together...
 
 ## Creating a field
 
-We're going to create a new type of field to allow the user to submit their age in years. A nice simple example that requires some validation. Usage of this new field will be as easy as `$form->age('foo')`. Let's get started!
+We're going to create a new type of field to allow the user to submit their age in years. A nice simple example that requires some validation. Usage of this new field will be as easy as `$form->age('age')->label('Age')`. Let's get started!
 
 ### Folder Structure
 
@@ -121,3 +121,9 @@ Add a new template file named `age.mustache.php`. Templates can be rendered by s
     </div>
 </div>
 ```
+
+As you can see, you have full control over how the field is rendered.
+
+### That's it, your done!
+
+The next step is to try out your field.

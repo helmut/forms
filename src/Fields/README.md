@@ -120,5 +120,4 @@ Inside the theme folder create a file called `age.mustache.php`. Templates can b
         </div>
     </div>
 </div>
-
 ```

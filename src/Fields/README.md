@@ -40,7 +40,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
         }
     ```
 
-2. The `getButtonName` returns the name of any keys that are associated with buttons that can submit the form. As this field does not contain any buttons we don't have to do anything other than implement an empty method.
+2. The `getButtonName` method returns the name of any keys that are associated with buttons that can submit the form. As this field does not contain any buttons we don't have to do anything other than implement an empty method.
 
     ```php
         public function getButtonName()
@@ -49,5 +49,11 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
         }
     ```
 
+3. The `renderWith` method should return an array of properties that are passed to the template when rendering. This will come in handy when we create the template for this field but for now simply implement an empty method.
 
-
+    ```php
+        public function renderWith()
+        {
+            
+        }
+    ```

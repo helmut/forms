@@ -474,6 +474,17 @@ abstract class Field {
     }
 
     /**
+     * Translate a specific key.
+     *
+     * @param  string  $key
+     * @return string
+     */
+    public function translate($key) 
+    {
+        return $this->form->translate($key, $this);
+    }
+
+    /**
      * Get the parent form.
      *
      * @return \Helmut\Forms\Form

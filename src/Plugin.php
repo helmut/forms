@@ -18,8 +18,17 @@ abstract class Plugin {
      * Create a new plugin instance.
      *
      */
-	public function __construct() 
+	public function __construct($config = null) 
 	{
+        if (is_array($config) && count($config)) {
+            foreach ($config as $key => $value) {
+                $method = 'set'.Str::studly($key);
+                if (method_exists($this, $method)) {
+                    $this->{$method}($value);
+                }
+            }
+        }
+
 		$this->setPath();
 	}
 

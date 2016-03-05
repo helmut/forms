@@ -616,8 +616,12 @@ abstract class Form {
         $config = $this->templateConfig($template);
 
         if ( isset($config['plugins']) && is_array($config['plugins'])) {
-            foreach($config['plugins'] as $plugin) {
-                $this->addPlugin($plugin);
+            foreach($config['plugins'] as $key => $plugin) {
+                if (is_array($plugin)) {
+                    $this->addPlugin($key, $plugin);
+                } else {
+                    $this->addPlugin($plugin);
+                }
             }
         }
     }
@@ -781,11 +785,15 @@ abstract class Form {
 
         $rendered_template = $this->renderer->render($template, $properties, $paths);
 
-        $properties[$template] = $rendered_template;
+        if (count($this->plugins)) {
 
-        foreach ($this->plugins as $plugin) {
-            if ($this->renderer->has($template, $plugin->templatePaths())) {
-                $rendered_template = $this->renderer->render($template, $properties, $plugin->templatePaths());
+            $properties[$template] = $rendered_template;
+
+            foreach ($this->plugins as $key=>$plugin) {
+                if ($this->renderer->has($template, $plugin->templatePaths())) {
+                    $rendered_template = $this->renderer->render($template, $properties, $plugin->templatePaths());
+                    $properties[$template] = $rendered_template;
+                }
             }
         }
 
@@ -874,9 +882,10 @@ abstract class Form {
      * Add a plugin to a form.
      *
      * @param  string  $name
-     * @return void
+     * @param  array  $config
+     * @return \Helmut\Forms\Plugin
      */
-    public function addPlugin($name)
+    public function addPlugin($name, $config = [])
     {
         $class = Str::studly($name);
 
@@ -887,10 +896,10 @@ abstract class Form {
             $plugin = $namespace.$class;
             
             if (class_exists($plugin)) {
-                $this->plugins[$name] = new $plugin;
+                $this->plugins[$name] = new $plugin($config);
                 $this->plugins[$name]->event($this, 'load');
 
-                return;
+                return $this->plugins[$name];
             }
         }
     }
@@ -906,6 +915,17 @@ abstract class Form {
         if (array_key_exists($name, $this->plugins)) {
             unset($this->plugins[$name]);
         }
+    }
+
+    /**
+     * Get a plugin instance.
+     *
+     * @param  string  $name
+     * @return \Helmut\Forms\Plugin
+     */
+    public function getPlugin($name)
+    {
+        return $this->plugins[$name];
     }
 
     /**

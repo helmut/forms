@@ -1,6 +1,11 @@
 CHANGE LOG
 ==========
 
+## v1.1.7
+* Added plugin configuration
+* Recursive template rendering for multiple plugins
+* Fields must now implement the validate method
+
 ## v1.1.6
 * Allow simple values to be returned instead of arrays
 * Allow accessing keys from fields using get second parameter

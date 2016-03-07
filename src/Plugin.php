@@ -65,7 +65,8 @@ abstract class Plugin {
 	}
 
 	/**
-     * Trigger an event callback. 
+     * Trigger an event callback. This allows
+     * you to hook into events from within the plugin.
      * - onLoad
      * - onDefine
      * - onRender

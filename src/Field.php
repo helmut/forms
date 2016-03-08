@@ -45,7 +45,7 @@ abstract class Field {
     /**
      * The default value of the field.
      *
-     * @var array
+     * @var mixed
      */
     protected $default;
 
@@ -113,7 +113,6 @@ abstract class Field {
     /**
      * Set field value using provided default.
      *
-     * @param mixed  $default
      * @return void
      */
     abstract public function setValueFromDefault();

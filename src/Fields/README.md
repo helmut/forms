@@ -6,7 +6,7 @@ Let's work on adding a new type of field together...
 
 ## Creating a field
 
-We're going to create a new type of field together, that will allow the user to submit their age in years. This is a nice, simple example that will requires some validation. 
+To learn how to create a new type of field, let's work together on a field that allows the user to submit their age in years. This is a nice, simple example that will require some validation. 
 
 Usage of this new field will be as easy as:
 

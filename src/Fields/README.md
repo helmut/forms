@@ -2,8 +2,6 @@
 
 This library gives you the tools to create your own custom fields. By extending the base `Field` class, your field can be easily used in any form you build. And the best part is that you still have complete control over how it looks and feels.
 
-Let's work on adding a new type of field together... 
-
 ## Creating a field
 
 To learn how to create a new type of field, let's work together on a field that allows the user to submit their age in years. This is a nice, simple example that will require some validation. 

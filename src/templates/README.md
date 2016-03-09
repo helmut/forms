@@ -8,4 +8,4 @@ You can also override an existing template by simply copying the package folder 
 
 Template files can be rendered by specifying the engine in the filename extension. For example `path/to/my/app/forms/templates/flat/form.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. 
 
-So that fields can be simply dropped in, each one has it's own `templates` directory. See [creating fields](src/Fields/).
+So that fields can be simply dropped in, each one has it's own `templates` directory. See [creating fields](/src/Fields/).

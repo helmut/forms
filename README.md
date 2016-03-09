@@ -404,7 +404,7 @@ $form->get('foo') // Returns 'baz'
 
 **Example:** 
 
-`$form->dropdown('colour')->label('Colour')->options(['red' => 'Red', 'green' => 'Green', 'blue' => 'Blue');`
+`$form->dropdown('colour')->label('Colour')->options(['red' => 'Red', 'green' => 'Green', 'blue' => 'Blue']);`
 
 ![dropdown](https://cloud.githubusercontent.com/assets/219623/12344363/324a1c66-bb77-11e5-9963-bba7909fe8e7.png)
 

@@ -17,8 +17,7 @@ abstract class Plugin {
     /**
      * Create a new plugin instance.
      *
-     * @param  array  $config
-     * @return void
+     * @param  mixed  $config
      */
 	public function __construct($config = null) 
 	{
@@ -38,9 +37,9 @@ abstract class Plugin {
         foreach ((array) $config as $key => $value) {
             $method = 'set'.Str::studly($key);
             if (method_exists($this, $method)) {
-                $this->{$method}($value);
+                call_user_func_array([$this, $method], [$value]);
             }
-        }        
+        }
     }
 
 	/**

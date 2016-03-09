@@ -12,6 +12,9 @@
                     <file>tests/unit/FormTest.php</file> 
                     <file>tests/unit/FieldTest.php</file> 
                     <file>tests/unit/PluginTest.php</file> 
+                    <file>tests/unit/UtilityStrTest.php</file> 
+                    <file>tests/unit/UtilityValidateTest.php</file> 
+                    <file>tests/unit/UtilityReflectTest.php</file> 
 					<file>tests/unit/ButtonTest.php</file> 
 					<file>tests/unit/TextTest.php</file> 
 					<file>tests/unit/NumberTest.php</file> 

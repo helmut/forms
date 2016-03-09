@@ -1,12 +1,20 @@
 # Fields
 
-Forms gives you the tools to create your own custom fields. By extending the base `Field` class, your field can be easily used in any form you build. But you still have complete control over how it looks and feels.
+This library gives you the tools to create your own custom fields. By extending the base `Field` class, your field can be easily used in any form you build. And the best part is that you still have complete control over how it looks and feels.
 
 Let's work on adding a new type of field together... 
 
 ## Creating a field
 
-We're going to create a new type of field to allow the user to submit their age in years. A nice simple example that requires some validation. Usage of this new field will be as easy as `$form->age('age')->label('Age')`. Let's get started!
+We're going to create a new type of field together, that will allow the user to submit their age in years. This is a nice, simple example that will requires some validation. 
+
+Usage of this new field will be as easy as:
+
+```php
+$form->age('age')->label('Age');
+```
+
+Let's get started!
 
 ### Folder Structure
 

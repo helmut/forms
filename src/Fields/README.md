@@ -86,7 +86,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-5. The `setValueFromRequest` method is used to set the current value of the field using the request object. Fetch the value for this field out of the request (using the name again) and set it. 
+5. The `setValueFromRequest` method is used to set the current value of the field using the request object. Fetch the value for this field out of the request (using the name again) and set it. For details about the request object check out the [Request](/src/Request.php) interface. 
 
     ```php
     public function setValueFromRequest($request)
@@ -104,7 +104,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is default validation needed so you can simply return true. However in this case we want make sure the response is always numeric and greater than zero.
+7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is no default validation needed so you can simply return true. However in this case we want make sure the response is always numeric and greater than zero.
 
     ```php
     public function validate()

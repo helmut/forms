@@ -17,7 +17,7 @@ A customisable and testable form abstraction library. Think of it as a request m
 * Built in validation
 
 
-## Jump to Section
+## Documentation
 
 * [Installation](#installation)
 * [Usage](#usage)

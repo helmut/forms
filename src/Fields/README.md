@@ -25,7 +25,7 @@ In the same namespace (or folder) that you created your form in [Step 1](/README
 Create a class named `Age` that extends `Helmut\Forms\Field`. 
 
 ```php
-// File: path/to/my/app/forms/Fields/Age/Age.php
+// File: path/to/my/app/Forms/Fields/Age/Age.php
 
 namespace App\Forms\Fields\Age;
 
@@ -193,7 +193,7 @@ Create a folder called `templates` for your age field - `path/to/my/app/forms/Fi
 Add a new template file named `age.mustache.php`. Templates can be rendered by specifying the engine in the filename extension. For example `age.mustache.php` will use the [Mustache](http://mustache.github.io/) engine. [Twig](http://twig.sensiolabs.org/) and [Blade](http://laravel.com/docs/blade) are also available. 
 
 ```
-// File: path/to/my/app/forms/Fields/Age/templates/bootstrap/age.mustache.php
+// File: path/to/my/app/Forms/Fields/Age/templates/bootstrap/age.mustache.php
 
 <div class="row">
     <div class="col-sm-12">

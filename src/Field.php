@@ -185,9 +185,13 @@ abstract class Field {
     {
         $values = $this->getValue();
 
-        if (is_null($values)) $values = [];
+        if (is_null($values)) {
+            return [];
+        } 
 
-        else if ( ! is_array($values)) $values = [$this->name => $values];
+        if ( ! is_array($values)) {
+            return [$this->name => $values];
+        }
 
         return $values;
     }
@@ -202,7 +206,9 @@ abstract class Field {
     {
         $properties = $this->renderWith();
 
-        if (is_null($properties)) $properties = [];
+        if (is_null($properties)) {
+            return [];
+        }
 
         return $properties;
     }
@@ -216,9 +222,13 @@ abstract class Field {
     {
         $buttons = $this->getButtonName();
 
-        if (is_null($buttons)) $buttons = [];
+        if (is_null($buttons)) {
+            return [];
+        }
 
-        else if ( ! is_array($buttons)) $buttons = [$buttons];
+        if ( ! is_array($buttons)) {
+            return [$buttons];
+        }
 
         return $buttons;
     }
@@ -230,7 +240,9 @@ abstract class Field {
      */ 
     public function setFromDefault()
     {
-        if ( ! is_null($this->default)) $this->setValueFromDefault();
+        if ( ! is_null($this->default)) {
+            $this->setValueFromDefault();
+        }
     }
 
     /**
@@ -418,7 +430,9 @@ abstract class Field {
      */
     public function error($message)
     {
-        if ( ! isset($this->errors['userDefined'])) $this->errors['userDefined'] = [];
+        if ( ! isset($this->errors['userDefined'])) {
+            $this->errors['userDefined'] = [];
+        }
 
         $this->errors['userDefined'][] = $message;
     }
@@ -443,7 +457,9 @@ abstract class Field {
      */
     protected function clearValidationError($method) 
     {
-        if (isset($this->errors[$method])) unset($this->errors[$method]);
+        if (isset($this->errors[$method])) {
+            unset($this->errors[$method]);
+        }
     }    
 
     /**

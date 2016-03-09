@@ -2,7 +2,7 @@
 
 namespace Helmut\Forms\Testing;
 
-//use Helmut\Forms\Testing\Stubs\Form;
+use Helmut\Forms\Testing\Stubs\Form;
 
 class FormTestCase extends \PHPUnit_Framework_TestCase{
 	
@@ -17,7 +17,7 @@ class FormTestCase extends \PHPUnit_Framework_TestCase{
 	{
 		if ( ! $request) $request = $this->request();
 
-		$form = new Stubs\Form($request);
+		$form = new Form($request);
 		$form->removeAllPlugins();
 		return $form;
 	}

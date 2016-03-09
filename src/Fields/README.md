@@ -11,8 +11,10 @@ To learn how to create a new type of field, let's work together on a field that 
 Usage of this new field will be as easy as:
 
 ```php
-$form->age('age')->label('Age');
+$form->age('age')->label('Age')->required();
 ```
+
+![age](https://cloud.githubusercontent.com/assets/219623/13453897/b9848252-e0a7-11e5-9c81-eafa13dd8d67.png)
 
 Let's get started!
 

@@ -450,7 +450,7 @@ abstract class Field {
     }
 
     /**
-     * Remove all internal validation error for method.
+     * Remove all internal validation errors for a method.
      *
      * @param string  $method     
      * @return void

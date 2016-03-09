@@ -4,9 +4,9 @@ This library gives you the tools to create your own custom fields. By extending 
 
 ## Creating a field
 
-To learn how to create a new type of field, let's work together on a field that allows the user to submit their age in years. This is a nice, simple example that will require some validation. 
+To learn how to create a field, let's work together on a new type of field that allows the user to submit their age in years. This is a nice, simple example that will require some validation. 
 
-Usage of this new field will be as easy as:
+When we finish, usage of this new field will be as easy as:
 
 ```php
 $form->age('age')->label('Age')->required();

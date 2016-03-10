@@ -1,5 +1,5 @@
 <?php 
 
 return [
-	'placeholder' => 'example@domain.com',
+    'placeholder' => 'example@domain.com',
 ];

@@ -11,33 +11,33 @@ class Mustache implements Engine {
      * The mustache compiler engine.
      *
      * @var \Mustache_Engine
-     */	
-	protected $compiler;
+     */ 
+    protected $compiler;
 
-	/**
+    /**
      * Fetch the compiler.
      *
      * @return \Mustache_Engine
      */
-	public function compiler()
-	{
-		if ( ! $this->compiler) $this->compiler = new Mustache_Engine;
+    public function compiler()
+    {
+        if ( ! $this->compiler) $this->compiler = new Mustache_Engine;
 
-		return $this->compiler;
-	}
+        return $this->compiler;
+    }
 
-	/**
+    /**
      * Render the template content.
      *
-	 * @param  string  $path
-	 * @param  array  $properties
+     * @param  string  $path
+     * @param  array  $properties
      * @return string
      */
-	public function render($path, $properties = []) 
-	{
-		$content = file_get_contents($path);
+    public function render($path, $properties = []) 
+    {
+        $content = file_get_contents($path);
 
-		return $this->compiler()->render($content, $properties);
-	}
+        return $this->compiler()->render($content, $properties);
+    }
 
 }

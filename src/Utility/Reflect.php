@@ -53,7 +53,7 @@ class Reflect {
 
             $method = new ReflectionMethod($class, $method);
 
-            foreach($method->getParameters() as $param) {
+            foreach ($method->getParameters() as $param) {
                 $params[] = $param->getName();
             }
 

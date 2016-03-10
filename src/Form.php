@@ -253,7 +253,9 @@ abstract class Form {
      */
     public function fields($names = null)
     {
-        if (is_null($names)) return $this->fields;
+        if (is_null($names)) {
+            return $this->fields;
+        }
 
         return array_filter($this->fields, function($field) use ($names) {
             return array_key_exists($field->name, $names);
@@ -473,7 +475,9 @@ abstract class Form {
         $class = '\\Fields\\'.ucwords($class).'\\'.ucwords($class);
 
         foreach ($this->namespaces as $namespace) {
-            if (class_exists($namespace.$class)) return $namespace.$class;
+            if (class_exists($namespace.$class)) {
+                return $namespace.$class;
+            }
         }
     }
 
@@ -486,9 +490,13 @@ abstract class Form {
      */
     public function errors($name = null)
     {
-        if ($this->submitted()) $this->validate();
+        if ($this->submitted()) {
+            $this->validate();
+        }
 
-        if ( ! is_null($name)) return $this->field($name)->errors();
+        if ( ! is_null($name)) {
+            return $this->field($name)->errors();
+        }
 
         $errors = [];
 
@@ -684,10 +692,15 @@ abstract class Form {
                     $message = $this->translate($error, $field);
 
                     foreach($parameters as $key => $value) {
-                        if (is_object($value) && method_exists($value, '__toString')) $value = (string) $value;
-                        if (is_array($value)) $value = implode(', ', $value);
+                        if (is_object($value) && method_exists($value, '__toString')) {
+                            $value = (string) $value;
+                        }
+                        if (is_array($value)) {
+                            $value = implode(', ', $value);
+                        }
                         $message = str_replace('['.$key.']', $value, $message);
                     }
+
                     $properties['errors'][] = ['error' => $message];
                 }
             }
@@ -705,7 +718,9 @@ abstract class Form {
      */
     public function renderField($field, $properties = null) 
     {   
-        if (is_null($properties)) $properties = $this->fieldProperties($field);
+        if (is_null($properties)) {
+            $properties = $this->fieldProperties($field);
+        }
 
         return $this->renderTemplate($field->type, $properties, $field);
     }
@@ -719,7 +734,9 @@ abstract class Form {
      */
     public function renderFieldErrors($field, $properties = null) 
     {   
-        if (is_null($properties)) $properties = $this->fieldProperties($field);
+        if (is_null($properties)) {
+            $properties = $this->fieldProperties($field);
+        }
 
         return $this->renderTemplate('errors', $properties, $field);
     }   
@@ -736,9 +753,13 @@ abstract class Form {
 
         $this->setValues();
 
-        if ($this->submitted()) $this->validate();
+        if ($this->submitted()) {
+            $this->validate();
+        }
 
-        if ( ! is_null($template)) $this->setTemplate($template);
+        if ( ! is_null($template)) {
+            $this->setTemplate($template);
+        }
 
         $properties = [];
         $properties['id'] = $this->id;

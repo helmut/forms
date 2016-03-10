@@ -1,6 +1,6 @@
 <?php 
 
 return [
-	'placeholder' => 'Search&hellip;',
-	'button' => 'Go',
+    'placeholder' => 'Search&hellip;',
+    'button' => 'Go',
 ];

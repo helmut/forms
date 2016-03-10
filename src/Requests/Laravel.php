@@ -6,27 +6,27 @@ use Helmut\Forms\Request;
 use Illuminate\Http\Request as IlluminateRequest;
 
 class Laravel implements Request {
-	
-	protected $request;
+    
+    protected $request;
 
-	public function __construct(IlluminateRequest $request)
-	{
-		$this->request = $request;
-	}
+    public function __construct(IlluminateRequest $request)
+    {
+        $this->request = $request;
+    }
 
-	public function all()
-	{
-		return $this->request->all();
-	}
+    public function all()
+    {
+        return $this->request->all();
+    }
 
-	public function get($key)
-	{
-		return $this->request->get($key);
-	}
+    public function get($key)
+    {
+        return $this->request->get($key);
+    }
 
-	public function csrf()
-	{
-		return ['name' => '_token', 'value' => csrf_token()];
-	}
+    public function csrf()
+    {
+        return ['name' => '_token', 'value' => csrf_token()];
+    }
 
 }

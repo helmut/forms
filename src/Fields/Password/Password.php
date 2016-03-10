@@ -20,7 +20,9 @@ class Password extends Field {
 
     public function needsRehash($hash = null)
     {
-        if (is_null($hash)) $hash = $this->value;
+        if (is_null($hash)) {
+            $hash = $this->value;
+        }
 
         return password_needs_rehash($hash, PASSWORD_BCRYPT, ['cost' => 10]);
     }   
@@ -58,7 +60,9 @@ class Password extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
+        if (property_exists($model, $this->name)) {
+            $this->value = $model->{$this->name};
+        }
     }
 
     public function setValueFromRequest($request)
@@ -68,7 +72,9 @@ class Password extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+        if (property_exists($model, $this->name)) {
+            $model->{$this->name} = $this->value;
+        }
     }   
 
     public function validate()

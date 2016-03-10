@@ -28,13 +28,13 @@ class Validate {
 
     public static function alphaNum($var)
     {
-        if (! is_string($var) && ! is_numeric($var)) return false;
+        if ( ! is_string($var) && ! is_numeric($var)) return false;
         return preg_match('/^[\pL\pM\pN]+$/u', $var);
     }
 
     public static function alphaDash($var)
     {
-        if (! is_string($var) && ! is_numeric($var)) return false;
+        if ( ! is_string($var) && ! is_numeric($var)) return false;
         return preg_match('/^[\pL\pM\pN_-]+$/u', $var);
     }
 

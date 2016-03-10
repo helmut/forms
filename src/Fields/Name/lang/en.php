@@ -1,6 +1,6 @@
 <?php 
 
 return [
-	'placeholder_first' => 'First',
-	'placeholder_surname' => 'Surname',
+    'placeholder_first' => 'First',
+    'placeholder_surname' => 'Surname',
 ];

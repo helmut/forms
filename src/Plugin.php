@@ -2,8 +2,8 @@
 
 namespace Helmut\Forms;
 
-use Helmut\Forms\Utility\Str;
 use Helmut\Forms\Utility\Reflect;
+use Helmut\Forms\Utility\Str;
 
 abstract class Plugin {
 	
@@ -12,18 +12,18 @@ abstract class Plugin {
      *
      * @var string
      */
-	protected $path;
+    protected $path;
 
     /**
      * Create a new plugin instance.
      *
      * @param  mixed  $config
      */
-	public function __construct($config = null) 
-	{
+    public function __construct($config = null)
+    {
         $this->configure($config);
 
-		$this->setPath();
+        $this->setPath();
 	}
 
     /**
@@ -42,31 +42,32 @@ abstract class Plugin {
         }
     }
 
-	/**
+    /**
      * Set the plugin autoload path.
      *
      * @return void
      */
-	public function setPath()
-	{
+    public function setPath()
+    {
         $this->path = Reflect::getDirectory($this);
-	}
+    }
 
-	/**
+    /**
      * Get autoload path.
      *
+     * @param string $append
      * @return string
      */
-	public function path($append = null) 
-	{
-		return is_null($append) ? $this->path 
-			: $this->path.'/'.ltrim(rtrim($append, '/'), '/').'/';
-	}
+    public function path($append = null) 
+    {
+        return is_null($append) ? $this->path 
+            : $this->path.'/'.ltrim(rtrim($append, '/'), '/').'/';
+    }
 
-	/**
+    /**
      * Get paths to templates.
      *
-     * @return string
+     * @return array
      */
 	public function templatePaths() 
 	{
@@ -74,7 +75,7 @@ abstract class Plugin {
 		return [$path];
 	}
 
-	/**
+    /**
      * Trigger an event callback. This allows
      * you to hook into events from within the plugin.
      * - onLoad
@@ -87,19 +88,18 @@ abstract class Plugin {
      * - onValid
      * - onInvalid
      *
-	 * @param  \Helmut\Forms\Form  $form
-	 * @param  string  $name
-	 * @param  array  $params
+     * @param  \Helmut\Forms\Form  $form
+     * @param  string  $name
+     * @param  array  $params
      * @return mixed
      */
-	public function event($form, $name, $params = []) 
-	{
-		$name = Str::studly($name);
+    public function event($form, $name, $params = [])
+    {
+        $name = Str::studly($name);
 
-		if (method_exists($this, 'on'.$name)) {
-			return call_user_func_array(array($this, 'on'.$name), [$form, $params]);
-		}
-
-	}
+        if (method_exists($this, 'on'.$name)) {
+            return call_user_func_array(array($this, 'on'.$name), [$form, $params]);
+        }
+    }
 
 }

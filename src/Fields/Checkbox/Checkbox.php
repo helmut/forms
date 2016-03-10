@@ -25,14 +25,14 @@ class Checkbox extends Field {
 
     public function setChecked()
     {
-         $this->default = true;
-         return $this;
+        $this->default = true;
+        return $this;
     }
 
     public function setUnchecked()
     {
-         $this->default = false;
-         return $this;
+        $this->default = false;
+        return $this;
     }   
 
     public function setValueFromDefault()

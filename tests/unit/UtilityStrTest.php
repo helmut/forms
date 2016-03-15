@@ -6,14 +6,14 @@ use Helmut\Forms\Utility\Str;
 
 class UtilityStrTest extends FormTestCase {
 
-	/** @test */
-	public function it_converts_to_snake_case()
-	{
+    /** @test */
+    public function it_converts_to_snake_case()
+    {
         $this->assertEquals('test', Str::snake('test'));
         $this->assertEquals('test', Str::snake('Test'));
         $this->assertEquals('test_word', Str::snake('TestWord'));
         $this->assertEquals('test_multiple_words', Str::snake('TestMultipleWords'));
-	}
+    }
 
     /** @test */
     public function it_converts_to_studly_caps()

@@ -6,14 +6,14 @@ use Helmut\Forms\Utility\Reflect;
 
 class UtilityReflectionTest extends FormTestCase {
 
-	/** @test */
-	public function it_can_get_filename_from_class()
-	{
+    /** @test */
+    public function it_can_get_filename_from_class()
+    {
         $this->assertContains(
             'forms/tests/unit/UtilityReflectTest.php',
             Reflect::getFilename($this)
         );
-	}
+    }
 
     /** @test */
     public function it_can_get_directory_from_class()

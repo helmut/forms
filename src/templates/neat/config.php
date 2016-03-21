@@ -1,7 +1,7 @@
 <?php 
 
 return [
-	'plugins' => [
-		'feedback',
-	],
+    'plugins' => [
+        'feedback',
+    ],
 ];

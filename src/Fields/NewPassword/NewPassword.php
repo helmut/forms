@@ -21,10 +21,7 @@ class NewPassword extends Field {
 
     public function getValue()
     {
-        $values = [];
-        $values[$this->name] = $this->value;
-        $values[$this->name.'_confirmation'] = $this->value_confirmation;
-        return $values;
+        return $this->hash($this->value);
     }
 
     public function getButtonName()

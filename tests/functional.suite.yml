@@ -8,6 +8,6 @@ class_name: FunctionalTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://sandbox.dev/forms/tests/functional/
+            url: http://forms.dev/tests/functional/
         # add framework module here
         - \Helper\Functional

@@ -82,36 +82,9 @@ class NewPasswordTest extends FormTestCase {
 		$form->button('baz');
 
 		$form->fill($model);
-
+        
+        $this->assertNotEmpty($model->foo);
 		$this->assertNotSame($model->foo, 'bar');
-	}
-
-	/** @test */
-	public function it_can_check_if_password_matches()
-	{
-		$model = $this->model(['foo'=>'']);
-
-		$request = $this->request();
-    	$request->method('all')->will($this->returnValue(['foo'=>'bar', 'foo_confirmation'=>'bar', 'baz'=>true]));
-    	$request->method('get')->will($this->returnValueMap([
-            ['foo', 'bar'],
-            ['foo_confirmation', 'bar'],
-    		['baz', true],
-    	]));
-
-		$form = $this->form($request);
-		$form->new_password('foo');
-		$form->button('baz');
-
-		$form->fill($model);
-
-		$hash = $form->new_password('foo')->hash('bar');
-		$invalid_hash = $form->new_password('foo')->hash('invalid');
-		$empty_hash = $form->new_password('foo')->hash('');
-
-		$this->assertTrue($form->new_password('foo')->matches($hash));
-		$this->assertFalse($form->new_password('foo')->matches($invalid_hash));
-		$this->assertFalse($form->new_password('foo')->matches($empty_hash));
 	}
 
 	/** @test */

@@ -10,4 +10,8 @@
 		background-color: red;
 		color: white;
 	}
+    .error_message a {
+        color: white;
+        text-decoration: underline;
+    }    
 </style>

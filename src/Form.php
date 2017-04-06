@@ -765,6 +765,12 @@ abstract class Form {
         $properties['id'] = $this->id;
         $properties['action'] = $this->action;
         $properties['csrf'] = $this->request->csrf();
+        
+        if ($this->submitted()) {
+            $properties['valid'] = $this->valid();     
+            $properties['invalid'] = ! $properties['valid'];
+        }
+
         $properties['fields'] = [];     
 
         $renderered_form = $this->renderTemplate('csrf', $this->request->csrf());

@@ -46,6 +46,11 @@ class Email extends Field {
 
     public function validate()
     {
+        return $this->email();
+    }
+
+    public function validateEmail()
+    {
         return Validate::email($this->value);
     }
 

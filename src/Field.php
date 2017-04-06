@@ -142,13 +142,6 @@ abstract class Field {
     abstract public function fillModelWithValue($model);
 
     /**
-     * Return if field validates.
-     *
-     * @return boolean
-     */    
-    abstract public function validate();
-
-    /**
      * Return if field validates required.
      *
      * @return boolean
@@ -348,6 +341,18 @@ abstract class Field {
     }
 
     /**
+     * Add a validation.
+     *
+     * @param string  $method     
+     * @param array  $parameters     
+     * @return void
+     */
+    protected function addValidation($method, $parameters) 
+    {
+        $this->validations[$method] = $parameters;
+    }    
+
+    /**
      * Perform all validations.
      *
      * @return void
@@ -360,13 +365,11 @@ abstract class Field {
 
         if ($this->isNotEmpty()) {
 
-            $validations = $this->validations;          
-
             if (method_exists($this, 'validate')) {
-                $validations = array_merge(['validate' => []], $validations);
+                $this->validate();
             }
 
-            foreach ($validations as $validation => $parameters) {
+            foreach ($this->validations as $validation => $parameters) {
                 $this->callValidationMethod($validation, $parameters);
             }
         }
@@ -535,11 +538,9 @@ abstract class Field {
 
             $name = 'validate'.$method;
             if (method_exists($this, $name)) {
-
                 $arguments = Reflect::getParameters($this, $name);
                 $parameters = array_pad($parameters, count($arguments), null);
-                $this->validations[$name] = array_combine($arguments, $parameters);
-
+                $this->addValidation($name, array_combine($arguments, $parameters));
                 return $this;
             }           
         }

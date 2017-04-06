@@ -59,11 +59,6 @@ class Checkbox extends Field {
         }
     }
 
-    public function validate()
-    {
-        return true;
-    }
-
     public function validateRequired()
     {
         return $this->value === true;

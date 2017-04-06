@@ -104,16 +104,26 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     }  
     ```
 
-7. The `validate` method is called every time the field is validated. All validation methods need to return a boolean value. Return true if the validation passes and false if it fails. For many fields there is no default validation needed so you can simply return true. However in this case we want make sure the response is always numeric and greater than zero.
+7. The `validate` method is where you can add any validation methods that need to run by default. For many fields there are no default validations needed so you can simply ignore. However in this case we want make sure the response is always numeric and no less than zero. Here you can see we added two new validation methods and called them from the `validate` method.
 
     ```php
     public function validate()
     {
-        return  is_numeric($this->value) && $this->value > 0;
+        return $this->numeric()->min(0);
     }  
+
+    public function validateNumeric()
+    {
+        return  is_numeric($this->value); && $this->value > 0;
+    }
+
+    public function validateMin($number)
+    {
+        return $this->value > 0;
+    }          
     ```
 
-8. The `validateRequired` method is the only other validation that you are forced to implement. We can just check that the value property is not empty.
+8. The `validateRequired` method is the only validation that you are forced to implement. We can just check that the value property is not empty.
 
     ```php
     public function validateRequired()

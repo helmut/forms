@@ -44,11 +44,6 @@ class ParagraphText extends Field {
         if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
     }   
 
-    public function validate()
-    {
-        return true;
-    }
-
     public function validateRequired()
     {
         return Validate::required($this->value);

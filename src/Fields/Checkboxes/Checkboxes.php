@@ -110,11 +110,6 @@ class Checkboxes extends Field {
         }
     }
 
-    public function validate()
-    {
-        return true;
-    }
-
     public function validateRequired()
     {
         $checked = false;

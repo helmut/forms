@@ -76,11 +76,6 @@ class Password extends Field {
             $model->{$this->name} = $this->value;
         }
     }   
-
-    public function validate()
-    {
-        return true;
-    }
     
     public function validateRequired()
     {

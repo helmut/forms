@@ -25,7 +25,8 @@
 					<file>tests/unit/DropdownTest.php</file>
 					<file>tests/unit/ParagraphTextTest.php</file> 
 					<file>tests/unit/PasswordTest.php</file>
-					<file>tests/unit/SearchTest.php</file>
+                    <file>tests/unit/SearchTest.php</file>
+                    <file>tests/unit/NewPasswordTest.php</file>
 				</testsuite>
         </testsuites>
 </phpunit>

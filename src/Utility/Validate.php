@@ -73,4 +73,9 @@ class Validate {
         return filter_var($var, FILTER_VALIDATE_INT) !== false;
     }
 
+    public static function matches($var1, $var2) 
+    {
+        return strcmp($var1, $var2) === 0;
+    }
+
 }

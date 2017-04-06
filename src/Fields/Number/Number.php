@@ -56,7 +56,7 @@ class Number extends Field {
 
     public function validate()
     {
-        return $this->validateNumeric();
+        $this->numeric();
     }
 
     public function validateNumeric()

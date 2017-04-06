@@ -114,7 +114,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
 
     public function validateNumeric()
     {
-        return  is_numeric($this->value); && $this->value > 0;
+        return  is_numeric($this->value);
     }
 
     public function validateMin($number)
@@ -185,7 +185,7 @@ class Age extends Field {
 
     public function validateNumeric()
     {
-        return  is_numeric($this->value); && $this->value > 0;
+        return  is_numeric($this->value);
     }
 
     public function validateRequired()

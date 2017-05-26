@@ -258,7 +258,7 @@ abstract class Form {
         }
 
         return array_filter($this->fields, function($field) use ($names) {
-            return array_key_exists($field->name, $names);
+            return in_array($field->name, $names);
         });
     }   
 

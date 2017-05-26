@@ -60,7 +60,7 @@ class Password extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) {
+        if (isset($model->{$this->name})) {
             $this->value = $model->{$this->name};
         }
     }
@@ -72,7 +72,7 @@ class Password extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) {
+        if (isset($model->{$this->name})) {
             $model->{$this->name} = $this->value;
         }
     }   

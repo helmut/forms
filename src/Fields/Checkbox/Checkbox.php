@@ -42,7 +42,7 @@ class Checkbox extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) {
+        if (isset($model->{$this->name})) {
             $this->value = $model->{$this->name} ? true : false;
         }
     }   
@@ -54,9 +54,7 @@ class Checkbox extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) {
-            $model->{$this->name} = $this->value ? 1 : 0;
-        }
+        $model->{$this->name} = $this->value ? 1 : 0;
     }
 
     public function validateRequired()

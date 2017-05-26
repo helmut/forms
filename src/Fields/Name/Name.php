@@ -45,8 +45,8 @@ class Name extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name.'_first')) $this->value_first = $model->{$this->name.'_first'};
-        if (property_exists($model, $this->name.'_surname')) $this->value_surname = $model->{$this->name.'_surname'};
+        if (isset($model->{$this->name.'_first'})) $this->value_first = $model->{$this->name.'_first'};
+        if (isset($model->{$this->name.'_surname'})) $this->value_surname = $model->{$this->name.'_surname'};
         $this->value = trim($this->value_first.' '.$this->value_surname);
     }
 
@@ -59,9 +59,9 @@ class Name extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name.'_first')) $model->{$this->name.'_first'} = $this->value_first;
-        if (property_exists($model, $this->name.'_surname')) $model->{$this->name.'_surname'} = $this->value_surname;
-        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+        $model->{$this->name.'_first'} = $this->value_first;
+        $model->{$this->name.'_surname'} = $this->value_surname;
+        $model->{$this->name} = $this->value;
     }
 
     public function validateRequired()

@@ -57,9 +57,7 @@ class NewPassword extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) {
-            $model->{$this->name} = $this->hash($this->value);
-        }
+        $model->{$this->name} = $this->hash($this->value);
     }
 
     public function validate()

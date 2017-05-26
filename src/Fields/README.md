@@ -82,7 +82,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     ```php
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
+        if (isset($model->{$this->name})) $this->value = $model->{$this->name};
     }  
     ```
 
@@ -100,7 +100,7 @@ Because you are extending `Helmut\Forms\Field` there will be a few abstract meth
     ```php
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+        if (isset($model->{$this->name})) $model->{$this->name} = $this->value;
     }  
     ```
 
@@ -165,7 +165,7 @@ class Age extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
+        if (isset($model->{$this->name})) $this->value = $model->{$this->name};
     }
 
     public function setValueFromRequest($request)
@@ -175,7 +175,7 @@ class Age extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+        if (isset($model->{$this->name})) $model->{$this->name} = $this->value;
     }
     
     public function validate()

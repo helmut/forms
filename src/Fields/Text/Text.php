@@ -41,7 +41,7 @@ class Text extends Field {
 
     public function setValueFromModel($model)
     {
-        if (property_exists($model, $this->name)) $this->value = $model->{$this->name};
+        if (isset($model->{$this->name})) $this->value = $model->{$this->name};
     }
 
     public function setValueFromRequest($request)
@@ -51,7 +51,7 @@ class Text extends Field {
 
     public function fillModelWithValue($model)
     {
-        if (property_exists($model, $this->name)) $model->{$this->name} = $this->value;
+        $model->{$this->name} = $this->value;
     }   
 
     public function validateRequired()

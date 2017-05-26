@@ -477,6 +477,10 @@ abstract class Field {
 
         if (is_null($key)) {
             
+            if (count($values) == 0) {
+                return null;
+            }  
+
             if (count($values) == 1) {
                 $values = current($values);
             }

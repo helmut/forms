@@ -91,7 +91,7 @@ class Checkboxes extends Field {
     public function setValueFromModel($model)
     {
         foreach (array_keys($this->options) as $key) {
-            if (property_exists($model, $this->name.'_'.$key)) $this->values[$key] = $model->{$this->name.'_'.$key} ? true : false;
+            if (isset($model->{$this->name.'_'.$key})) $this->values[$key] = $model->{$this->name.'_'.$key} ? true : false;
         }
 
     }   
@@ -106,7 +106,7 @@ class Checkboxes extends Field {
     public function fillModelWithValue($model)
     {
         foreach (array_keys($this->options) as $key) {
-            if (property_exists($model, $this->name.'_'.$key)) $model->{$this->name.'_'.$key} = $this->values[$key] ? 1 : 0;
+            $model->{$this->name.'_'.$key} = $this->values[$key] ? 1 : 0;
         }
     }
 

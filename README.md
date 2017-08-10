@@ -12,7 +12,6 @@ A customisable and testable form abstraction library. Think of it as a request m
 * Provides a model for reusing field components
 * Design fields exactly the same way you normally would
 * Render using mustache, twig, or blade
-* Compatible with CSS preprocessors
 * Built in validation
 
 
